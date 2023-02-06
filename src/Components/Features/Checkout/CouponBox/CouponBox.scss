@@ -1,0 +1,52 @@
+@import "../../../../Assets/styles/variables.scss";
+
+.coupon-box{
+  background: #FFFBEC;
+  border: 1px solid #9E9E9E;
+  border-radius: 9px;
+  padding: 15px 9px;
+  margin: 44px 0;
+  .medium-title{
+    font-weight: 700;
+    @include lineClamp(1);
+    max-width: 86%;
+    margin: 0 auto 13px;
+  }
+  &__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .coupon-img{
+      max-width: 80%;
+      height: auto;
+    }
+    .regular-text{
+      font-weight: 300;
+      @include lineClamp(2);
+      margin-bottom: 10px;
+    }
+    .price-content{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      span{
+        font: inherit;
+      }
+      .crossed{
+        text-decoration: line-through;
+        opacity: .6;
+      }
+    }
+  }
+  @include screen(xs) {
+    &__content{
+      flex-direction: row;
+      align-items: flex-start;
+      .coupon-img{
+        margin-right: 17px;
+        max-width: 50%;
+      }
+    }
+  }
+}

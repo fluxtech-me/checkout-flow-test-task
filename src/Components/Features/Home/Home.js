@@ -1,8 +1,12 @@
+import Sidebar from 'Components/Common/Sidebar';
+import Header from 'Components/Common/Header';
+
 const Home = () => {
     return (
-        <div>
-            <h2>Home</h2>
-        </div>
+        <main>
+           <Header />
+           <Sidebar />
+        </main>
     )
 }
 
