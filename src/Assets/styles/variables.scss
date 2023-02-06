@@ -1,0 +1,72 @@
+$cooper_lt_font: 'Cooper Lt BT', serif;
+$neue-haas-unica: 'Neue Haas Unica', sans-serif;
+
+// BREAKPOINTS
+$media-xs: 576px;
+$media-sm: 768px;
+$media-md: 1024px;
+$media-lg: 1200px;
+$media-xlg: 1366px;
+
+@mixin screen($size, $type: min, $pixels: $media-xs) {
+  @if $size == 'xs' {
+    @media screen and ($type + -width: $media-xs) {
+      @content;
+    }
+  }
+  @else if $size == 'sm' {
+    @media screen and ($type + -width: $media-sm) {
+      @content;
+    }
+  }
+  @else if $size == 'md' {
+    @media screen and ($type + -width: $media-md) {
+      @content;
+    }
+  }
+  @else if $size == 'lg' {
+    @media screen and ($type + -width: $media-lg) {
+      @content;
+    }
+  }
+  @else if $size == 'xlg' {
+    @media screen and ($type + -width: $media-xlg) {
+      @content;
+    }
+  }
+  @else if $size == 'custom' {
+    @media screen and ($type + -width: $pixels + px) {
+      @content;
+    }
+  }
+  @else {
+    @content;
+  }
+}
+
+@mixin fontVariation($size: '16px', $weight: '500', $lineHeight: '20px'){
+  font-size: $size;
+  line-height: $weight;
+  font-weight: $lineHeight;
+}
+
+@mixin lineClamp ($line) {
+  display: -webkit-box;
+  -webkit-line-clamp: #{$line};
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin scrollBar($width, $height) {
+  &::-webkit-scrollbar {
+    width:  $width;
+    height: $height;
+    background-color: rgba(black, .4);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(black, .4);
+    border-radius: 0px;
+  }
+}

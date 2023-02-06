@@ -1,12 +1,54 @@
+@import "../../Assets/fonts/fonts.css";
+@import "variables";
+
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: $neue-haas-unica;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: black;
 }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+  box-sizing: border-box;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.heading-2 {
+  @include fontVariation(28px, 42px, 400);
+  font-family: $cooper_lt_font;
+}
+
+.regular-text {
+  @include fontVariation(18px, 25px, 300);
+}
+
+.medium-title {
+  @include fontVariation(25px, 25px, 500);
+}
+
+.medium-light-text{
+  @include fontVariation(16px, 26px, 350);
+}
+
+.text-center {
+  text-align: center;
+}
+
+@include screen(xs) {
+  .heading-2{
+    font-size: 35px;
+  }
+  .medium-light-text{
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
