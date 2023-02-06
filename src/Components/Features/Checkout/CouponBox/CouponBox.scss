@@ -1,12 +1,12 @@
 @import "../../../../Assets/styles/variables.scss";
 
 .coupon-box{
-  background: #FFFBEC;
-  border: 1px solid #9E9E9E;
+  background-color: var(--coupon-bg-color);
+  border: 1px solid var(--coupon-border-color);;
   border-radius: 9px;
   padding: 15px 9px;
   margin: 44px 0;
-  .medium-title{
+  .medium-text{
     font-weight: 700;
     @include lineClamp(1);
     max-width: 86%;
@@ -14,11 +14,16 @@
   }
   &__content{
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
     .coupon-img{
-      max-width: 80%;
+      flex:0 0 49.4%;
+      margin-right: 17px;
+      min-width: 120px;
       height: auto;
+    }
+    .info{
+      flex: 1;
     }
     .regular-text{
       font-weight: 300;
@@ -45,7 +50,7 @@
       align-items: flex-start;
       .coupon-img{
         margin-right: 17px;
-        max-width: 50%;
+        //max-width: 50%;
       }
     }
   }

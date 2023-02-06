@@ -18,14 +18,14 @@
     &:last-of-type{
       margin-top: 8px;
       .option{
-        font: inherit;
+
       }
       .light{
-        color: #939393;
+        color: var(--light-gray);
         margin: 0 14px 0 auto;
       }
       .price-text{
-        font: inherit;
+
         line-height: 13px;
       }
     }
