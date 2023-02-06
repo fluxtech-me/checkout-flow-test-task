@@ -70,3 +70,18 @@ $media-xlg: 1366px;
     border-radius: 0px;
   }
 }
+
+#positioned{
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#flex-centered{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import {CartList} from 'Components/Features/Checkout/Cart/CartIList';
 import {OrderPricingInfo} from 'Components/Features/Checkout/OrderPricingInfo/OrderPricingInfo';
 import {CouponBox} from 'Components/Features/Checkout/CouponBox';
+import {Button} from 'Components/Material/Button';
 import './Sidebar.scss';
 
 const Sidebar = () => {
@@ -24,7 +25,10 @@ const Sidebar = () => {
                     <CartList />
                     <CouponBox />
                     <OrderPricingInfo />
-                    <button>Checkout now</button>
+                    <Button
+                        type="primary"
+                        children="Checkout now"
+                    />
                 </div>
             </div>
             <div className="navbar-overlay"/>

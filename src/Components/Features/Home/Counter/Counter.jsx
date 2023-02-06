@@ -1,25 +1,23 @@
-import { Button } from "Components/Material/Button"
-import { useCallback, useState } from "react"
-import _identity from 'lodash/identity'
-
+import { Button } from "Components/Material/Button";
+import {useCallback, useEffect, useState} from "react";
+import _identity from 'lodash/identity';
+import './Counter.scss';
 
 export const Counter = (props) => {
-
     const {
-        className = "counter-container",
         styles = {},
-        subIcon = "-",
-        addIcon = "+",
+        subIcon = <><span className="icon icon-minus"/></>,
+        addIcon = <><span className="icon icon-plus"/></>,
         onCountChange = _identity
-    } = props
+    } = props;
 
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
 
     const handleAdd = useCallback(() => {
         const newCount = count + 1
         setCount(newCount)
         onCountChange(newCount)
-    }, [count, onCountChange])
+    }, [count, onCountChange]);
 
     const handleSub = useCallback(() => {
         const newCount = count - 1
@@ -27,13 +25,13 @@ export const Counter = (props) => {
             setCount(newCount)
             onCountChange(newCount)
         }
-    }, [count, onCountChange])
+    }, [count, onCountChange]);
 
     return (
-        <div className={className} styles={styles}>
+        <div className="counter-container" style={styles}>
             <Button onClick={handleSub}>{subIcon}</Button>
-            <span>{count}</span>
+            <span className="counter-container__count">{count}</span>
             <Button onClick={handleAdd}>{addIcon}</Button>
         </div>
-    )
-}
+    );
+};

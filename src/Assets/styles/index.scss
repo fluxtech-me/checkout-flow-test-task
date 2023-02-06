@@ -1,12 +1,25 @@
 @import "../../Assets/fonts/fonts.css";
+@import "../../Assets/fonts/icomoon/style.css";
 @import "variables";
+
+:root{
+  --white: #fff;
+  --black: #000;
+  --dark: #010101;
+  --black-RGB: 0, 0, 0;
+  --light-gray: #939393;
+  --btn-bg-color: #F1EEE9;
+  --btn-border-color: #A0A0A0;
+  --coupon-bg-color: #FFFBEC;
+  --coupon-border-color: #9E9E9E;
+}
 
 body {
   margin: 0;
   font-family: $neue-haas-unica;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: black;
+  color: var(--black);
 }
 
 * {
@@ -30,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
   @include fontVariation(18px, 25px, 300);
 }
 
-.medium-title {
+.medium-text {
   @include fontVariation(25px, 25px, 500);
 }
 

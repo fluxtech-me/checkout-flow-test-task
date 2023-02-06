@@ -1,19 +1,107 @@
-.btn-default{
+@import "../../../Assets/styles/variables";
 
+.btn {
+  font-family: $neue-haas-unica;
+  text-align: center;
+  &:disabled, &.btn-disabled{
+    opacity: .6;
+    cursor: default;
+  }
 }
+.btn-default{
+  background-color: var(--btn-bg-color);
+  border: 1px solid var(--btn-border-color);
+  border-radius: 4px;
+  @include fontVariation(20px, 30px, 500);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  min-width: 116px;
+  min-height: 40px;
+  cursor: pointer;
+  padding: 4px;
+  transition: background-color .3s ease-out;
+  &:not(:disabled):hover{
+    background-color: rgba(var(--btn-bg-color), .5);
+  }
+}
+@mixin btn-polygon($radius: 16px){
+  -webkit-clip-path: polygon(0% 0%, 0% 0%, calc(100% - #{$radius}) 0%, 100% 50%, calc(100% - #{$radius}) 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 0% 0%, calc(100% - #{$radius}) 0%, 100% 50%, calc(100% - #{$radius}) 100%, 0% 100%);
+}
+@mixin btnVariant($type: primary) {
+  min-height: 54px;
+  padding: 4px;
+  position: relative;
+  border: 2px solid var(--dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  @include fontVariation(30px, 45px, 400);
+  @include btn-polygon(16px);
 
+  @if($type == primary) {
+    color: var(--white);
+    background-color: var(--black);
+  } @else if ($type == secondary) {
+    color: var(--black);
+    background-color: var(--black);
+    span{
+      position: relative;
+      display: inline-block;
+      z-index: 2;
+    }
+    width: auto;
+    &:before{
+      @include btn-polygon(15px);
+      background-color: var(--white);
+    }
+  }
+  &:before{
+    content: '';
+    position: absolute;
+    @extend #positioned;
+    filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.25));
+    z-index: 1;
+  }
+  &.btn-sm{
+    min-height: 35px;
+    min-width: 140px;
+    @include fontVariation(20px, 22px, 500);
+  }
+}
 .btn-primary{
-
+  @include btnVariant('primary');
 }
 
 .btn-secondary{
-
+  @include btnVariant('secondary');
 }
 
-.btn-loading{
-
+.spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
 }
 
-.btn-disabled{
-
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
 }

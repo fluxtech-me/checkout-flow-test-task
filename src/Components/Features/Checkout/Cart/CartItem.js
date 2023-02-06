@@ -1,4 +1,5 @@
 import React from 'react';
+import {Counter} from 'Components/Features/Home/Counter';
 
 const CartItem = (props) => {
     const {item} = props;
@@ -11,7 +12,7 @@ const CartItem = (props) => {
             <div className="cart-description">
                 <p className="regular-text">{item.name}</p>
                 <div className="cart-info">
-                    <button>sm</button>
+                   <Counter />
                     <span className="cart-info__price">{item.price}</span>
                 </div>
             </div>
