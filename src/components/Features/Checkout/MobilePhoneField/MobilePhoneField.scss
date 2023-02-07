@@ -1,0 +1,26 @@
+@import "src/assets/styles/variables.scss";
+
+.phone-field{
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    &__select{
+        width: 100px;
+    }
+    &__input{
+        padding-left: 30px;
+        .form-control{
+            //border-bottom: 0;
+            + .form-label{
+                display: none;
+            }
+        }
+    }
+    @include screen(sm) {
+        &__select {
+            width: 130px;
+            position: relative;
+            z-index: 9;
+        }
+    }
+}

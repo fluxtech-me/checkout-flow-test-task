@@ -1,5 +1,6 @@
 import React from 'react';
 import {Counter} from '../../Home/Counter';
+import {Button} from '../../../Material/Button';
 
 export const CartItem = (props) => {
     const {item, onCountChange} = props;
@@ -9,7 +10,15 @@ export const CartItem = (props) => {
                 <img src={item.image} alt="cart item"/>
             </div>
             <div className="cart-description">
-                <p className="regular-text">{item.name}</p>
+                <p className="regular-text">
+                    {item.name}
+                </p>
+                <Button
+                    type="icon"
+                    className="delete-icon"
+                >
+                    <span className="icon icon-close" />
+                </Button>
                 <div className="cart-info">
                     <Counter initialCount={item.count} onCountChange={onCountChange} />
                     <span className="cart-info__price">{item.totalPrice}</span>

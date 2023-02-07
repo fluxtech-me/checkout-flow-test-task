@@ -10,51 +10,54 @@ import './Sidebar.scss';
 
 const Sidebar = () => {
     const isActive = true;
-
     const [products, setProducts] = useState([]);
     const [appliedCoupons, setAppliedCoupons] = useState([]);
     const [code, setCode] = useState("");
-    
+
     useEffect(() => {
         getData();
     }, []);
 
     const getData = () => {
         const products = db.getProducts()
-        const appliedCoupons = db.getApplayedCoupons();
-        setProducts(products);
-        setAppliedCoupons(appliedCoupons);
+        const appliedCoupons = db.getApplayedCoupons()
+        setProducts(products)
+        setAppliedCoupons(appliedCoupons)
+    };
+
+    const resetCodeInput = () => {
+        setCode("");
     };
 
     const onProductCountChange = (newCount, productId) => {
-            if(newCount !== 0) {
-                db.updateProductCount(productId, newCount);
-            } else {
-                db.deleteProduct(productId);
-            }
+        if(newCount !== 0) {
+            db.updateProductCount(productId, newCount)
+        } else {
+            db.deleteProduct(productId)
+        }
         getData();
+    };
+
+    const handleResetField = () => {
+        setCode('');
     };
 
     const applyCoupon = () => {
         const isAppliedCode = _findIndex(appliedCoupons, coupon => coupon.code === code)
         if(isAppliedCode === -1) {
-            db.addCoupon(code);
-            setCode("");
+            db.addCoupon(code)
+            resetCodeInput()
         }
         getData();
     };
 
     const deleteCoupon = (id) => {
-        db.deleteCoupon(id);
-        getData();
+        db.deleteCoupon(id)
+        getData()
     };
 
     const changeCode = (event) => {
-        setCode(event.target.value);
-    };
-
-    const handleResetField = () => {
-        setCode('');
+        setCode(event.target.value)
     };
 
     return (
@@ -96,7 +99,7 @@ const Sidebar = () => {
             </div>
             <div className="navbar-overlay"/>
         </>
-    )
+    );
 };
 
 export {Sidebar};

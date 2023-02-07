@@ -24,8 +24,21 @@ $cartItemHeight: 120;
     }
     .cart-description{
       padding: 0 7px 0 24px;
+      width: 100%;
       display: flex;
       flex-direction: column;
+      position: relative;
+      .regular-text{
+        padding-right: 20px;
+      }
+      .delete-icon{
+        position: absolute;
+        background: transparent;
+        right: 0;
+        width: auto;
+        top: 0;
+        font-size: 20px;
+      }
     }
     .regular-text{
       @include lineClamp(2);

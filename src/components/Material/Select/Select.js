@@ -1,5 +1,7 @@
-import React from "react"
-import ReactSelect from "react-select"
+import React from "react";
+import ReactSelect from "react-select";
+import cx from 'classnames';
+import './Select.scss';
 
 const defaultStyles = {
     control: (baseStyles) => ({
@@ -12,15 +14,16 @@ const defaultStyles = {
     }),
     menu: (baseStyles) => ({
         ...baseStyles,
-        width: "100%"
+        width: "100%",
+        zIndex: 9
     })
-}
+};
 
 const defaultComponents = () => {
     return {
         IndicatorSeparator: () => null,
-    }
-}
+    };
+};
 
 export const Select = (props) => {
     const {
@@ -29,17 +32,23 @@ export const Select = (props) => {
         classNamePrefix,
         components = defaultComponents(),
         options,
+        label,
         ...selectProps
-    } = props
+    } = props;
 
     return (
-        <ReactSelect 
-            className={className}
-            components={components}
-            classNamePrefix={classNamePrefix}
-            styles={styles}
-            options={options}
-            {...selectProps}
-        />
-    )
-}
+        <div className={cx('select-field',
+                className
+            )}
+        >
+            <ReactSelect
+                components={components}
+                classNamePrefix={classNamePrefix}
+                styles={styles}
+                options={options}
+                {...selectProps}
+            />
+            {label && <span className="select-field__label">{label}</span>}
+        </div>
+    );
+};
