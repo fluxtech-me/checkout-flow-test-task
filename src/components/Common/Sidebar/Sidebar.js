@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {CartList} from '../../Features/Checkout/Cart/CartIList';
 import {OrderPricingInfo} from '../../Features/Checkout/OrderPricingInfo/OrderPricingInfo';
 import {CouponBox} from '../../Features/Checkout/CouponBox';
 import {Button} from '../../Material/Button';
 import db from '../../../services/db.js';
+import _map from 'lodash/map';
 import _findIndex from 'lodash/findIndex';
+import _filter from 'lodash/filter';
 import { CouponCode } from '../../Features/Checkout/CouponCode';
 import './Sidebar.scss';
 
@@ -74,13 +76,12 @@ const Sidebar = () => {
                 </div>
                 <div className="navbar__content">
                     <CartList data={products} onCountChange={onProductCountChange}/>
-                    <CouponCode
-                        applayedCoupons={applayedCoupons}
-                        applayCoupon={applayCoupon}
-                        deleteCoupon={deleteCoupon}
+                    <CouponCode 
+                        applayedCoupons={applayedCoupons} 
+                        applayCoupon={applayCoupon} 
+                        deleteCoupon={deleteCoupon} 
                         changeCode={changeCode}
                         code={code}
-                        resetCode={resetCodeInput}
                     />
                     <CouponBox />
                     <OrderPricingInfo shipping={30} applayedCoupons={applayedCoupons} productsData={products} />
