@@ -1,12 +1,14 @@
 import React from 'react';
-import cx from "classnames";
 import {Button} from '../../Material/Button';
+import _identity from 'lodash/identity';
+import cx from "classnames";
 import "./Input.scss";
 
 const Input = (props) => {
     const {
         className = "",
         style = {},
+        handleResetField = _identity,
         placeholder,
         label,
         disabled,
@@ -42,7 +44,7 @@ const Input = (props) => {
                 {...inputProps}
             />
             {variant === "underlined" && <label className="form-label">{label}</label>}
-            {variant !== "underlined" && <Button type="icon" className="icon icon-close" />}
+            {variant === "outlined" && <Button onClick={handleResetField} type="icon" className="icon icon-close" />}
         </div>
     );
 };

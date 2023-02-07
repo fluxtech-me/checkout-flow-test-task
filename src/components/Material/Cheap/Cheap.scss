@@ -5,12 +5,17 @@
   border-radius: 12px;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   min-height: 28px;
   padding: 1px 9px;
+  max-width: 96%;
   &__content{
     @include fontVariation(14px, 25px, 300);
     text-transform: uppercase;
+    width: 90%;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
   }
   .delete-btn{
     background-color: transparent;

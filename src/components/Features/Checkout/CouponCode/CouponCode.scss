@@ -1,0 +1,28 @@
+@import "src/assets/styles/variables";
+
+.coupon-field{
+  margin: 20px 0;
+  text-align: center;
+  &__label{
+
+  }
+  &__form{
+    .field{
+      display: flex;
+      align-items: stretch;
+      margin-bottom: 15px;
+    }
+    .apply-btn{
+      min-width: 116px;
+      margin-left: 15px;
+    }
+  }
+  .coupon-cheap-list{
+    display: flex;
+    flex-wrap: wrap;
+    &__item{
+      flex: 0 0 1;
+      margin:0 12px 12px 0;
+    }
+  }
+}

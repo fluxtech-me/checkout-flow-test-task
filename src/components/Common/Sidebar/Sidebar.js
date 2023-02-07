@@ -4,16 +4,14 @@ import {OrderPricingInfo} from '../../Features/Checkout/OrderPricingInfo/OrderPr
 import {CouponBox} from '../../Features/Checkout/CouponBox';
 import {Button} from '../../Material/Button';
 import db from '../../../services/db.js';
-import _map from 'lodash/map';
 import _findIndex from 'lodash/findIndex';
-import _filter from 'lodash/filter';
 import { CouponCode } from '../../Features/Checkout/CouponCode';
 import './Sidebar.scss';
 
 const Sidebar = () => {
     const isActive = true;
     const [products, setProducts] = useState([]);
-    const [applayedCoupons, setApplayedCoupons] = useState([]);
+    const [appliedCoupons, setAppliedCoupons] = useState([]);
     const [code, setCode] = useState("");
 
     useEffect(() => {
@@ -22,9 +20,9 @@ const Sidebar = () => {
 
     const getData = () => {
         const products = db.getProducts()
-        const applayedCoupons = db.getApplayedCoupons()
+        const appliedCoupons = db.getApplayedCoupons()
         setProducts(products)
-        setApplayedCoupons(applayedCoupons)
+        setAppliedCoupons(appliedCoupons)
     };
 
     const resetCodeInput = () => {
@@ -40,9 +38,13 @@ const Sidebar = () => {
         getData();
     };
 
-    const applayCoupon = () => {
-        const isApplayedCode = _findIndex(applayedCoupons, coupon => coupon.code === code)
-        if(isApplayedCode === -1) {
+    const handleResetField = () => {
+        setCode('');
+    };
+
+    const applyCoupon = () => {
+        const isAppliedCode = _findIndex(appliedCoupons, coupon => coupon.code === code)
+        if(isAppliedCode === -1) {
             db.addCoupon(code)
             resetCodeInput()
         }
@@ -61,7 +63,7 @@ const Sidebar = () => {
     return (
         <>
             <div className="navbar navbar-fixed">
-                <div className="navbar__heading">
+                <div className="navbar__heading sticky-top">
                     <Button
                         type="icon"
                         className="close-btn burger"
@@ -77,18 +79,22 @@ const Sidebar = () => {
                 <div className="navbar__content">
                     <CartList data={products} onCountChange={onProductCountChange}/>
                     <CouponCode 
-                        applayedCoupons={applayedCoupons} 
-                        applayCoupon={applayCoupon} 
+                        appliedCoupons={appliedCoupons}
+                        handleResetField={handleResetField}
+                        appliedCoupon={applyCoupon}
                         deleteCoupon={deleteCoupon} 
                         changeCode={changeCode}
                         code={code}
                     />
                     <CouponBox />
-                    <OrderPricingInfo shipping={30} applayedCoupons={applayedCoupons} productsData={products} />
-                    <Button
-                        type="primary"
-                        children="Checkout now"
-                    />
+                    <OrderPricingInfo shipping={30} appliedCoupons={appliedCoupons} productsData={products} />
+                    <div className="sticky-bottom w-100">
+                        <Button
+                            className="w-100"
+                            type="primary"
+                            children="Checkout now"
+                        />
+                    </div>
                 </div>
             </div>
             <div className="navbar-overlay"/>

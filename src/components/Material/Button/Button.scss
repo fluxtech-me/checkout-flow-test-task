@@ -108,6 +108,11 @@
     border: none;
     padding: 2px 0;
     color: var(--btn-link-color);
+    cursor: pointer;
+    transition: opacity .3s ease-out;
+    &:hover{
+      opacity: .6;
+    }
     span{
       @include fontVariation(20px, 10px, 400);
       position: relative;
