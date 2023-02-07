@@ -1,6 +1,7 @@
 import { Button } from "Components/Material/Button";
-import {useCallback, useEffect, useState} from "react";
+import {useCallback, useState} from "react";
 import _identity from 'lodash/identity';
+import cx from 'classnames';
 import './Counter.scss';
 
 export const Counter = (props) => {
@@ -8,7 +9,8 @@ export const Counter = (props) => {
         styles = {},
         subIcon = <><span className="icon icon-minus"/></>,
         addIcon = <><span className="icon icon-plus"/></>,
-        onCountChange = _identity
+        onCountChange = _identity,
+        className = ""
     } = props;
 
     const [count, setCount] = useState(0);
@@ -28,7 +30,10 @@ export const Counter = (props) => {
     }, [count, onCountChange]);
 
     return (
-        <div className="counter-container" style={styles}>
+        <div className={cx({
+            "counter-container": true,
+            [className]: true
+        })} style={styles}>
             <Button onClick={handleSub}>{subIcon}</Button>
             <span className="counter-container__count">{count}</span>
             <Button onClick={handleAdd}>{addIcon}</Button>
