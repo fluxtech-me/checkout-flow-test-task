@@ -1,8 +1,8 @@
 @import "../../../assets/styles/variables";
 
 .navbar {
-  position: fixed;
   @extend #positioned;
+  position: fixed;
   left: auto;
   background-color: var(--white);
   max-width: 375px;
@@ -39,10 +39,10 @@
   }
 }
 .navbar-overlay{
-  position: fixed;
   background-color: rgba(black, .5);
   z-index: 1;
   @extend #positioned;
+  position: fixed;
   right: auto;
   bottom: auto;
 }

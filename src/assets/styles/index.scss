@@ -1,6 +1,6 @@
-@import "../../assets/fonts/fonts.css";
-@import "../../assets/fonts/icomoon/style.css";
-@import "./variables.scss";
+@import "../../Assets/fonts/fonts.css";
+@import "../../Assets/fonts/icomoon/style.css";
+@import "variables";
 
 :root{
   --white: #fff;
@@ -12,6 +12,9 @@
   --btn-border-color: #A0A0A0;
   --coupon-bg-color: #FFFBEC;
   --coupon-border-color: #9E9E9E;
+  --underlined-input-color: #424141;
+  --underlined-label-color: #606060;
+  --btn-link-color: #606060;
 }
 
 body {
@@ -64,4 +67,3 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 30px;
   }
 }
-

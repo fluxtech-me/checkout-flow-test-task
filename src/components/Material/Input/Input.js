@@ -1,32 +1,49 @@
-import React from "react"
-import cx from 'classnames'
+import React from 'react';
+import cx from "classnames";
+import {Button} from '../../Material/Button';
+import "./Input.scss";
 
-export const Input = (props) => {
-
+const Input = (props) => {
     const {
-        className = "input-container",
+        className = "",
         style = {},
         placeholder,
         label,
         disabled,
         error,
+        type = "text",
         readOnly,
         variant = "outlined",
+        value,
         ...inputProps
-    } = props
+    } = props;
 
     return (
-        <div style={style} className={cx(
-            {	
-                [className]: true,
-                [`input-${variant}`]: true,
-                "input-disabled": disabled,
-                "btn-readOnly": readOnly,
-                "btn-error": error
-            }
-        )}>
-            <input disabled={disabled} readOnly={readOnly} placeholder={!label && placeholder} {...inputProps}/>
-            {variant === "underlined" && <label>{label}</label>}
+        <div style={style}
+             className={cx(
+                 'form-input',
+                 className,
+                 {
+                     [`form-input--${variant}`]: true,
+                     "form-input--disabled": disabled,
+                     "form-input--readOnly": readOnly,
+                     "form-input--error": error,
+                     'form-input--hasValue': value && String(value).length > 0,
+                 }
+             )}
+        >
+            <input
+                className="form-control"
+                type={type}
+                disabled={disabled}
+                readOnly={readOnly}
+                placeholder={!label && placeholder}
+                value={value}
+                {...inputProps}
+            />
+            {variant === "underlined" && <label className="form-label">{label}</label>}
+            {variant !== "underlined" && <Button type="icon" className="icon icon-close" />}
         </div>
-    )
-}
+    );
+};
+export {Input};
