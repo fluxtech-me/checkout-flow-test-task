@@ -2,9 +2,8 @@ import React from 'react';
 import {Counter} from '../../Home/Counter';
 import {Button} from '../../../Material/Button';
 
-const CartItem = (props) => {
-    const {item} = props;
-
+export const CartItem = (props) => {
+    const {item, onCountChange} = props;
     return (
         <li className="cart-list__item">
             <div className="cart-image">
@@ -21,11 +20,10 @@ const CartItem = (props) => {
                     <span className="icon icon-close" />
                 </Button>
                 <div className="cart-info">
-                   <Counter />
-                    <span className="cart-info__price">{item.price}</span>
+                    <Counter initialCount={item.count} onCountChange={onCountChange} />
+                    <span className="cart-info__price">{item.totalPrice}</span>
                 </div>
             </div>
         </li>
     );
 };
-export {CartItem};

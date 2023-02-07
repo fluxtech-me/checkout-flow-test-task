@@ -18,7 +18,7 @@ const CouponBox = () => {
                   <Button
                       type="secondary"
                       size="sm"
-                      children={<span>Pay now</span>}
+                      children={<span>Add now</span>}
                   />
               </div>
           </div>

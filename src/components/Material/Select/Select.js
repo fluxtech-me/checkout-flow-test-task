@@ -1,7 +1,7 @@
 import React from "react";
 import ReactSelect from "react-select";
-import './Select.scss';
 import cx from 'classnames';
+import './Select.scss';
 
 const defaultStyles = {
     control: (baseStyles) => ({
