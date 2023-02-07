@@ -4,66 +4,63 @@ import {OrderPricingInfo} from '../../Features/Checkout/OrderPricingInfo/OrderPr
 import {CouponBox} from '../../Features/Checkout/CouponBox';
 import {Button} from '../../Material/Button';
 import db from '../../../services/db.js';
-import _map from 'lodash/map';
 import _findIndex from 'lodash/findIndex';
-import _filter from 'lodash/filter';
 import { CouponCode } from '../../Features/Checkout/CouponCode';
 import './Sidebar.scss';
-import {RadioGroup} from '../../Features/RadioGroup';
 
 const Sidebar = () => {
     const isActive = true;
-    const [checkedValue, setCheckedValue] = useState('');
-    const onRadioChange = (e) => {
-        setCheckedValue(e.target.value);
-    };
 
-    const [products, setProducts] = useState([])
-    const [applayedCoupons, setApplayedCoupons] = useState([])
-    const [code, setCode] = useState("")
+    const [products, setProducts] = useState([]);
+    const [appliedCoupons, setAppliedCoupons] = useState([]);
+    const [code, setCode] = useState("");
     
     useEffect(() => {
-        getData()
-    }, [])
+        getData();
+    }, []);
 
     const getData = () => {
         const products = db.getProducts()
-        const applayedCoupons = db.getApplayedCoupons()
-        setProducts(products)
-        setApplayedCoupons(applayedCoupons)
-    }
+        const appliedCoupons = db.getApplayedCoupons();
+        setProducts(products);
+        setAppliedCoupons(appliedCoupons);
+    };
 
     const onProductCountChange = (newCount, productId) => {
             if(newCount !== 0) {
-                db.updateProductCount(productId, newCount)
+                db.updateProductCount(productId, newCount);
             } else {
-                db.deleteProduct(productId)
+                db.deleteProduct(productId);
             }
-        getData()
-    }
+        getData();
+    };
 
-    const applayCoupon = () => {
-        const isApplayedCode = _findIndex(applayedCoupons, coupon => coupon.code === code)
-        if(isApplayedCode === -1) {
-            db.addCoupon(code)
-            setCode("")
+    const applyCoupon = () => {
+        const isAppliedCode = _findIndex(appliedCoupons, coupon => coupon.code === code)
+        if(isAppliedCode === -1) {
+            db.addCoupon(code);
+            setCode("");
         }
-        getData()
-    }
+        getData();
+    };
 
     const deleteCoupon = (id) => {
-        db.deleteCoupon(id)
-        getData()
-    }
+        db.deleteCoupon(id);
+        getData();
+    };
 
     const changeCode = (event) => {
-        setCode(event.target.value)
-    }
+        setCode(event.target.value);
+    };
+
+    const handleResetField = () => {
+        setCode('');
+    };
 
     return (
         <>
             <div className="navbar navbar-fixed">
-                <div className="navbar__heading">
+                <div className="navbar__heading sticky-top">
                     <Button
                         type="icon"
                         className="close-btn burger"
@@ -79,18 +76,22 @@ const Sidebar = () => {
                 <div className="navbar__content">
                     <CartList data={products} onCountChange={onProductCountChange}/>
                     <CouponCode 
-                        applayedCoupons={applayedCoupons} 
-                        applayCoupon={applayCoupon} 
+                        appliedCoupons={appliedCoupons}
+                        handleResetField={handleResetField}
+                        appliedCoupon={applyCoupon}
                         deleteCoupon={deleteCoupon} 
                         changeCode={changeCode}
                         code={code}
                     />
                     <CouponBox />
-                    <OrderPricingInfo shipping={30} applayedCoupons={applayedCoupons} productsData={products} />
-                    <Button
-                        type="primary"
-                        children="Checkout now"
-                    />
+                    <OrderPricingInfo shipping={30} appliedCoupons={appliedCoupons} productsData={products} />
+                    <div className="sticky-bottom w-100">
+                        <Button
+                            className="w-100"
+                            type="primary"
+                            children="Checkout now"
+                        />
+                    </div>
                 </div>
             </div>
             <div className="navbar-overlay"/>

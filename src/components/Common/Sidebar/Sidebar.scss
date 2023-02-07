@@ -7,8 +7,7 @@
   background-color: var(--white);
   max-width: 375px;
   z-index: 2;
-  padding: 23px 13px 40px;
-
+  padding: 0 13px;
   display: flex;
   flex-direction: column;
   align-items: normal;
@@ -26,17 +25,34 @@
   }
   &__heading {
     position: relative;
-
+    padding-top: 23px;
     .close-btn {
       position: absolute;
       top: 50%;
       left: 0;
-      transform: translateY(-50%);
+      transform: translateY(calc(-50% + 10px));
       border: none;
       background-color: transparent;
       @extend #flex-centered;
     }
   }
+}
+.sticky-bottom{
+  background-color: var(--white);
+  position: sticky;
+  bottom: 0;
+  padding: {
+    top: 10px;
+    bottom: 40px;
+  }
+  .btn{
+    width: 100%;
+  }
+}
+.sticky-top{
+  background-color: var(--white);
+  position: sticky;
+  top: 0;
 }
 .navbar-overlay{
   background-color: rgba(black, .5);

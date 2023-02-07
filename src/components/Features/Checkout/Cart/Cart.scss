@@ -4,7 +4,6 @@ $cartItemHeight: 120;
 .cart-list{
   margin-top: 26px;
   max-height: $cartItemHeight * 3px;
-  min-height: $cartItemHeight*2px;
   overflow: auto;
   @include scrollBar(3px, 3px);
   &__item{

@@ -20,8 +20,8 @@ export const Cheap = (props) => {
     <div 
 		className={cx(
 			'cheap',
+			className,
 			{
-				className,
 				"cheap--disabled": disabled
 			})
 		}
