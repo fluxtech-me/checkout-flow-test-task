@@ -1,0 +1,67 @@
+@import "../../assets/fonts/fonts.css";
+@import "../../assets/fonts/icomoon/style.css";
+@import "./variables.scss";
+
+:root{
+  --white: #fff;
+  --black: #000;
+  --dark: #010101;
+  --black-RGB: 0, 0, 0;
+  --light-gray: #939393;
+  --btn-bg-color: #F1EEE9;
+  --btn-border-color: #A0A0A0;
+  --coupon-bg-color: #FFFBEC;
+  --coupon-border-color: #9E9E9E;
+}
+
+body {
+  margin: 0;
+  font-family: $neue-haas-unica;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--black);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.heading-2 {
+  @include fontVariation(28px, 42px, 400);
+  font-family: $cooper_lt_font;
+}
+
+.regular-text {
+  @include fontVariation(18px, 25px, 300);
+}
+
+.medium-text {
+  @include fontVariation(25px, 25px, 500);
+}
+
+.medium-light-text{
+  @include fontVariation(16px, 26px, 350);
+}
+
+.text-center {
+  text-align: center;
+}
+
+@include screen(xs) {
+  .heading-2{
+    font-size: 35px;
+  }
+  .medium-light-text{
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+

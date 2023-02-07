@@ -1,7 +1,7 @@
 import {reactRender} from 'Main';
 
 // global styles
-import 'Assets/styles/index.scss';
+import './assets/styles/index.scss';
 
 // react render
 reactRender();

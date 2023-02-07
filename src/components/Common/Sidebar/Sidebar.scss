@@ -1,0 +1,91 @@
+@import "../../../assets/styles/variables";
+
+.navbar {
+  position: fixed;
+  @extend #positioned;
+  left: auto;
+  background-color: var(--white);
+  max-width: 375px;
+  z-index: 2;
+  padding: 23px 13px 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: normal;
+
+  @include scrollBar(3px, 3px);
+  overflow: auto;
+  &__content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+    .order-info-list{
+      margin-top: auto;
+    }
+  }
+  &__heading {
+    position: relative;
+
+    .close-btn {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      border: none;
+      background-color: transparent;
+      @extend #flex-centered;
+    }
+  }
+}
+.navbar-overlay{
+  position: fixed;
+  background-color: rgba(black, .5);
+  z-index: 1;
+  @extend #positioned;
+  right: auto;
+  bottom: auto;
+}
+.burger{
+  @extend #flex-centered;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  &__inner{
+    width: 18px;
+    height: 14px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    > span{
+      position: absolute;
+      width: 22px;
+      height: 1.5px;
+      transition: .15s ease;
+      transition-property: transform,opacity;
+      border-radius: 4px;
+      background-color: var(--black);
+    }
+    $pairs:
+          'top'     0     (translate3d(0,6px,0) rotate(45deg))     1,
+          'middle'  6px   (translate3d(-8px,0px,0))          0,
+          'bottom'  12px  (translate3d(0,-6px,0) rotate(-45deg))   1;
+    @each $item, $step, $transform, $opacity in $pairs {
+      .burger__#{$item}{
+        top: $step;
+        &.active {
+          transform: $transform;
+          @if ($item == 'middle') {
+            opacity: $opacity;
+          }
+        }
+      }
+    }
+  }
+}
+
+
