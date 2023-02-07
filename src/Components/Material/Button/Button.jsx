@@ -3,7 +3,7 @@ import './Button.scss';
 
 export const Button = (props) => {
     const {
-        children = "Click Me",
+        children = "",
 		className = "",
 		style = {},
 		size = '',
@@ -20,10 +20,10 @@ export const Button = (props) => {
 		className={cx("btn",
 					{
 						[className]: true,
-						[`btn-${type}`]: true,
-						[`btn-${size}`]: size,
-						"btn-disabled": disabled,
-						"btn-loading": loading
+						[`btn--${type}`]: true,
+						[`btn--${size}`]: size,
+						"btn--disabled": disabled,
+						"btn--loading": loading
 					}
 				)}
 		{...btnProps}

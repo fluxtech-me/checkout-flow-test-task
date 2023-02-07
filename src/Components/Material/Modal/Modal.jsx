@@ -1,6 +1,6 @@
 import ReactModal from 'react-modal';
-import './Modal.scss'
 import {useEffect} from "react";
+import './Modal.scss'
 
 const customStyles = {
     overlay: {

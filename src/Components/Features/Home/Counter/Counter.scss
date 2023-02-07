@@ -6,16 +6,10 @@
   border: 0.5px solid var(--black);
   border-radius: 3px;
   overflow: hidden;
-  .btn-default{
-    min-width: 24px;
-    min-height: 24px;
-    font-size: 14px;
-    line-height: normal;
-    background-color: var(--white);
-    border: none;
-    border-radius: 0;
+  .btn--icon{
     &:not(:disabled){
       &:hover{
+        opacity: 1;
         background-color: rgba(var(--black-RGB), .1);
       }
       &:active{

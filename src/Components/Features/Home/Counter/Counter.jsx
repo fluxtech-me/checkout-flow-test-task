@@ -33,10 +33,19 @@ export const Counter = (props) => {
         <div className={cx({
             "counter-container": true,
             [className]: true
-        })} style={styles}>
-            <Button onClick={handleSub}>{subIcon}</Button>
+        })}
+             style={styles}>
+            <Button
+                type="icon"
+                onClick={handleSub}>
+                {subIcon}
+            </Button>
             <span className="counter-container__count">{count}</span>
-            <Button onClick={handleAdd}>{addIcon}</Button>
+            <Button
+                type="icon"
+                onClick={handleAdd}>
+                {addIcon}
+            </Button>
         </div>
     );
 };
