@@ -1,8 +1,13 @@
-import React, {useState} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {CartList} from '../../Features/Checkout/Cart/CartIList';
 import {OrderPricingInfo} from '../../Features/Checkout/OrderPricingInfo/OrderPricingInfo';
 import {CouponBox} from '../../Features/Checkout/CouponBox';
 import {Button} from '../../Material/Button';
+import db from '../../../services/db.js';
+import _map from 'lodash/map';
+import _findIndex from 'lodash/findIndex';
+import _filter from 'lodash/filter';
+import { CouponCode } from '../../Features/Checkout/CouponCode';
 import './Sidebar.scss';
 import {RadioGroup} from '../../Features/RadioGroup';
 
@@ -12,6 +17,48 @@ const Sidebar = () => {
     const onRadioChange = (e) => {
         setCheckedValue(e.target.value);
     };
+
+    const [products, setProducts] = useState([])
+    const [applayedCoupons, setApplayedCoupons] = useState([])
+    const [code, setCode] = useState("")
+    
+    useEffect(() => {
+        getData()
+    }, [])
+
+    const getData = () => {
+        const products = db.getProducts()
+        const applayedCoupons = db.getApplayedCoupons()
+        setProducts(products)
+        setApplayedCoupons(applayedCoupons)
+    }
+
+    const onProductCountChange = (newCount, productId) => {
+            if(newCount !== 0) {
+                db.updateProductCount(productId, newCount)
+            } else {
+                db.deleteProduct(productId)
+            }
+        getData()
+    }
+
+    const applayCoupon = () => {
+        const isApplayedCode = _findIndex(applayedCoupons, coupon => coupon.code === code)
+        if(isApplayedCode === -1) {
+            db.addCoupon(code)
+            setCode("")
+        }
+        getData()
+    }
+
+    const deleteCoupon = (id) => {
+        db.deleteCoupon(id)
+        getData()
+    }
+
+    const changeCode = (event) => {
+        setCode(event.target.value)
+    }
 
     return (
         <>
@@ -30,17 +77,16 @@ const Sidebar = () => {
                     <h2 className="heading-2 text-center">Your Cart</h2>
                 </div>
                 <div className="navbar__content">
-                    <CartList />
-                    <RadioGroup
-                        onChange={onRadioChange}
-                        defaultValue={checkedValue}
-                        options={[
-                            {value: 'true', label: 'label'},
-                            {value: 'false', label: 'label label label'},
-                        ]}
+                    <CartList data={products} onCountChange={onProductCountChange}/>
+                    <CouponCode 
+                        applayedCoupons={applayedCoupons} 
+                        applayCoupon={applayCoupon} 
+                        deleteCoupon={deleteCoupon} 
+                        changeCode={changeCode}
+                        code={code}
                     />
                     <CouponBox />
-                    <OrderPricingInfo />
+                    <OrderPricingInfo shipping={30} applayedCoupons={applayedCoupons} productsData={products} />
                     <Button
                         type="primary"
                         children="Checkout now"
