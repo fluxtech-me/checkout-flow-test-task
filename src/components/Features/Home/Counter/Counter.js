@@ -10,10 +10,11 @@ const Counter = (props) => {
         subIcon = <><span className="icon icon-minus"/></>,
         addIcon = <><span className="icon icon-plus"/></>,
         onCountChange = _identity,
-        className = ""
+        className = "",
+        initialCount = 0
     } = props;
 
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(initialCount);
 
     const handleAdd = useCallback(() => {
         const newCount = count + 1;
