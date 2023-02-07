@@ -14,11 +14,11 @@
   }
   &[type=radio] + label{
     color: var(--underlined-input-color);
-    @include fontVariation(25px, 38px, 400);
+    @include fontVariation(20px, 38px, 400);
   }
   &[type=radio] + label:before{
     content: "";
-    margin-right: 18px;
+    margin-right: 10px;
     border-radius: 50%;
     width: 22px;
     height: 22px;
@@ -36,6 +36,13 @@
     width: 14px;
     height: 14px;
     border-radius: 50%;
+  }
+  @include screen(sm) {
+    font-size: 25px;
+    line-height: 38px;
+    &[type=radio] + label:before{
+      margin-right: 18px;
+    }
   }
 
 }
