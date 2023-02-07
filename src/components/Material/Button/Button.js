@@ -1,10 +1,10 @@
-import React from "react"
+import React from 'react';
 import cx from 'classnames';
 import './Button.scss';
 
 export const Button = (props) => {
-    const {
-        children = "Click Me",
+	const {
+		children = "",
 		className = "",
 		style = {},
 		size = '',
@@ -13,20 +13,20 @@ export const Button = (props) => {
 		loading = false,
 		loadingIndicator = <span className="icon icon-spinner spin" />,
 		...btnProps
-    } = props;
+	} = props;
 
-    return <button 
+	return <button
 		style={style}
 		disabled={disabled || loading}
 		className={cx("btn",
-					{
-						[className]: true,
-						[`btn-${type}`]: true,
-						[`btn-${size}`]: size,
-						"btn-disabled": disabled,
-						"btn-loading": loading
-					}
-				)}
+			{
+				[className]: true,
+				[`btn--${type}`]: true,
+				[`btn--${size}`]: size,
+				"btn--disabled": disabled,
+				"btn--loading": loading
+			}
+		)}
 		{...btnProps}
 	>
 		{loading ? loadingIndicator : children}

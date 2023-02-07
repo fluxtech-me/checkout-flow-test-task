@@ -1,0 +1,14 @@
+@import "../../../assets/styles/variables";
+
+.checkout-options{
+  &__item{
+    border-bottom: 1px dashed var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .price{
+      font-weight: 400;
+      line-height: 38px;
+    }
+  }
+}

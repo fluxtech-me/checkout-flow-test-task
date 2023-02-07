@@ -1,0 +1,20 @@
+@import "../../../assets/styles/variables";
+
+.cheap{
+  background: var(--btn-bg-color);
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 1px 9px;
+  &__content{
+    @include fontVariation(14px, 25px, 300);
+    text-transform: uppercase;
+  }
+  .delete-btn{
+    background-color: transparent;
+    min-width: 20px;
+    min-height: 20px;
+  }
+}
