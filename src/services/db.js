@@ -36,9 +36,8 @@ class DB {
         { label: 'Standard Shipping', value: 'standard', price: 10.00, selected: false},
         { label: 'Express Shipping', value: 'express', price: 30.00, selected: false},
     ]
-    checkoutData = {
+    checkoutData = {}
 
-    }
     getProducts() {
         return this.products
     }

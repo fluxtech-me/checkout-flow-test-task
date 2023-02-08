@@ -1,5 +1,5 @@
-import React, {useCallback, useState} from "react";
-import {Button} from '../../Material/Button';
+import React, {useState} from "react";
+import {Button} from '../Button';
 import _identity from 'lodash/identity';
 import cx from 'classnames';
 import './Counter.scss';
@@ -7,8 +7,8 @@ import './Counter.scss';
 const Counter = (props) => {
     const {
         styles = {},
-        subIcon = <><span className="icon icon-minus"/></>,
-        addIcon = <><span className="icon icon-plus"/></>,
+        subContent = <span className="icon icon-minus"/>,
+        addContent = <span className="icon icon-plus"/>,
         onCountChange = _identity,
         className = "",
         initialCount = 0
@@ -16,37 +16,34 @@ const Counter = (props) => {
 
     const [count, setCount] = useState(initialCount);
 
-    const handleAdd = useCallback(() => {
+    const handleAdd = () => {
         const newCount = count + 1;
         setCount(newCount);
         onCountChange(newCount);
-    }, [count, onCountChange]);
+    };
 
-    const handleSub = useCallback(() => {
+    const handleSub = () => {
         const newCount = count - 1
         if(count > 0) {
             setCount(newCount);
             onCountChange(newCount);
         }
-    }, [count, onCountChange]);
+    };
 
     return (
-        <div className={cx({
-            "counter-container": true,
-            [className]: true
-        })}
+        <div className={cx("counter-container", className)}
              style={styles}
         >
             <Button
                 type="icon"
                 onClick={handleSub}>
-                {subIcon}
+                {subContent}
             </Button>
             <span className="counter-container__count">{count}</span>
             <Button
                 type="icon"
                 onClick={handleAdd}>
-                {addIcon}
+                {addContent}
             </Button>
         </div>
     );

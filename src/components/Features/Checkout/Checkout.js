@@ -3,7 +3,6 @@ import {CheckoutHeader} from '../../Common/Header';
 import {ShippingRadioGroup} from '../ShippingRadioGroup';
 import {PaymentDetails} from '../../Features/Checkout/PaymentDetails';
 import {MobilePhoneField} from '../../Material/MobilePhoneField';
-import { CheckoutOrder } from "./CheckoutOrder";
 import { Formik, Field, Form } from 'formik';
 import { InputField } from "../../Material/Formik/InputField";
 import { SelectField } from "../../Material/Formik/SelectField/SelectField";
@@ -13,6 +12,7 @@ import {Textarea} from '../../Material/Textarea';
 import {Button} from '../../Material/Button';
 import {Modal} from '../../Material/Modal';
 import './Checkout.scss'
+import { OrderLayout2 } from "./Order/OrderLayout2";
 
 const Checkout = (props) => {
 
@@ -20,7 +20,7 @@ const Checkout = (props) => {
 
     const [shippingData, setShippingData] = useState([]);
     const [countriesList, setCountryList] = useState([]);
-    const [deliveryAddressContent, setDeliveryAddressContent] = useState("Unit 56, 20 Campbell Parade, Bondi Beach, Whatever unit block, NSW, 2026 goes over 2 lines if it’s long address");
+    // const [deliveryAddressContent, setDeliveryAddressContent] = useState("Unit 56, 20 Campbell Parade, Bondi Beach, Whatever unit block, NSW, 2026 goes over 2 lines if it’s long address");
     const [showModal, setShowModal] = useState(false);
 
     const getData = () => {
@@ -41,7 +41,6 @@ const Checkout = (props) => {
             const products = db.getProducts()
             const shippingData = db.getShippingData()
             const checkoutInfo = {checkoutData: newCheckoutData, products, shippingData}
-            console.log('checkoutInfo', checkoutInfo)
             onCheckoutSuccess(checkoutInfo)
         } catch (error) {
             onCheckoutFail(error)
@@ -56,11 +55,14 @@ const Checkout = (props) => {
         );
     };
 
-    const handleFieldReset = () => {
-        setDeliveryAddressContent("");
-    };
-
-    const initialValues = {email: '', phone: '', firstName: '', lastName: '', country: ''}
+    const initialValues = { 
+        email: '',
+        phone: '', 
+        firstName: '', 
+        lastName: '', 
+        country: '',
+        address: ''
+    }
 
     useEffect(() => {
         getData()
@@ -145,16 +147,18 @@ const Checkout = (props) => {
                                         />
                                     </div>
                                     <div className="form-mb d-md-flex action-wrapper">
-                                        <Textarea
-                                            readOnly={true}
+                                        <Field 
+                                            component={Textarea}
+                                            onChange={(value) => setFieldValue('address', value.value)}
                                             variant="underlined"
                                             label="delivery address"
-                                            value={deliveryAddressContent}
+                                            value={values.address}
+                                            name="address"
                                         />
                                         <Button
                                             type="link"
                                             className="update-btn"
-                                            onClick={handleFieldReset}
+                                            onClick={() => setFieldValue('address', "")}
                                             children={<span>change</span>}
                                         />
                                     </div>
@@ -183,7 +187,7 @@ const Checkout = (props) => {
                        </Formik>
                     </div>
                     <div className="row-col-1">
-                        <CheckoutOrder />
+                        <OrderLayout2 />
                     </div>
                 </div>
             </div>

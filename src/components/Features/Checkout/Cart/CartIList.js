@@ -9,14 +9,15 @@ export const CartList = (props) => {
         onCountChange,
         showDeleteAction
     } = props;
+
     return (
         <ul className="cart-list">
             {
                 data?.length ? (
-                    _map(data, (item, index) => (
-                       <CartItem
-                           showDeleteAction={showDeleteAction}
-                        key={index}
+                    _map(data, (item) => (
+                       <CartItem 
+                        key={item.id}
+                        showDeleteAction={showDeleteAction}
                         item={item} 
                         onCountChange={
                             (newCount) => onCountChange(newCount, item.id)

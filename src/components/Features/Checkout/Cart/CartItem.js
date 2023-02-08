@@ -1,5 +1,5 @@
 import React from 'react';
-import {Counter} from '../../Counter';
+import {Counter} from '../../../Material/Counter';
 import {Button} from '../../../Material/Button';
 
 export const CartItem = (props) => {
@@ -8,6 +8,7 @@ export const CartItem = (props) => {
         onCountChange,
         showDeleteAction
     } = props;
+
     return (
         <li className="cart-list__item">
             <div className="cart-image">

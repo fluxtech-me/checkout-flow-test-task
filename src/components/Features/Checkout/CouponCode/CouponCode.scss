@@ -13,6 +13,9 @@
     .regular-text {
       line-height: 20px;
     }
+    .btn  span, .regular-text{
+      font-size: 16px;
+    }
   }
   &__form{
     .field{
@@ -34,9 +37,7 @@
   }
   @include screen(sm) {
     &__label {
-      .regular-text {
-        line-height: 25px;
-      }
+
     }
   }
   @include screen(custom, min, 375) {
@@ -50,10 +51,8 @@
         width: auto;
         margin-top: 0;
       }
-      .btn{
-        span{
-          font-size: 18px;
-        }
+      .btn  span, .regular-text{
+        font-size: 18px;
       }
     }
   }
