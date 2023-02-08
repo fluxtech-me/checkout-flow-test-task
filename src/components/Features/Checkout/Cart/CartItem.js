@@ -22,6 +22,7 @@ export const CartItem = (props) => {
                     <Button
                         type="icon"
                         className="delete-icon"
+                        onClick={() => {onCountChange(0)}}
                     >
                         <span className="icon icon-close" />
                     </Button>

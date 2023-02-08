@@ -61,6 +61,7 @@ export const CheckoutForm = (props) => {
                             className="flex-item"
                             onChange={(value) => setFieldValue('phone', value)}
                             value={values.phone}
+                            defaultCountry="US"
                         />
                         <p className="regular-text flex-item">Your phone number is required for delivery & shipping updates.</p>
                     </div>
@@ -93,6 +94,7 @@ export const CheckoutForm = (props) => {
                             className="w-100 flex-item"
                             label="country"
                             name="country"
+                            defaultValue={{ value: 'USA', label: 'USA' }}
                             onChange={(value) => setFieldValue('country', value.value)}
                             options={countriesList}
                         />

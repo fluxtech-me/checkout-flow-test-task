@@ -10,6 +10,7 @@ const MobilePhoneField = (props) => {
         value,
         label,
         onChange,
+        ...inputProps
     } = props;
 
     return (
@@ -24,6 +25,7 @@ const MobilePhoneField = (props) => {
                 international={true}
                 className="phone-field__input"
                 onChange={onChange}
+                {...inputProps}
             />
             {label && <span className="phone-label">{label}</span>}
         </div>

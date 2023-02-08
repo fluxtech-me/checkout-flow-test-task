@@ -9,7 +9,7 @@ export const CouponCode = (props) => {
     const {
         appliedCoupons,
         code,
-        appliedCoupon,
+        applyCoupon,
         deleteCoupon,
         handleResetField,
         changeCode
@@ -20,6 +20,11 @@ export const CouponCode = (props) => {
     const handleEnterCode = () => {
         setIsOpenApplyPart(true);
     };
+
+    const handleInputApplay = event => {
+        const {target, keyCode} = event
+        keyCode === 13 && target.value && applyCoupon()
+     }
 
     return (
         <div className="coupon-field w-100">
@@ -41,11 +46,12 @@ export const CouponCode = (props) => {
                                 onChange={changeCode}
                                 handleResetField={handleResetField}
                                 value={code}
+                                onKeyDown={handleInputApplay}
                             />
                             <Button
                                 disabled={!code}
                                 className="apply-btn"
-                                onClick={appliedCoupon}
+                                onClick={applyCoupon}
                             >
                                 APPLY
                             </Button>
