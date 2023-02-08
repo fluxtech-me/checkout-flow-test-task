@@ -8,15 +8,16 @@
         "serve": "gatsby serve",
         "clean": "gatsby clean",
         "format:check": "prettier --check .",
-        "format:fix": "prettier --write ."
+        "format:fix": "prettier --write .",
+        "preload-fonts": "gatsby-preload-fonts"
     },
     "dependencies": {
         "classnames": "^2.3.2",
         "formik": "^2.2.9",
         "gatsby": "^5.5.0",
         "gatsby-plugin-manifest": "^5.6.0",
+        "gatsby-plugin-preload-fonts": "^4.6.0",
         "gatsby-plugin-sass": "^6.5.0",
-        "gatsby-plugin-your-fonts": "^0.0.1",
         "nanoid": "^4.0.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
