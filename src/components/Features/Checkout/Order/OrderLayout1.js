@@ -56,7 +56,7 @@ export const OrderLayout1 = () => {
                             <Button
                                 className="w-100"
                                 type="primary"
-                                children="Checkout now"
+                                children={<span>Checkout now</span>}
                                 onClick={handleCheckoutNow}
                                 disabled={!canCheckout}
                             />
