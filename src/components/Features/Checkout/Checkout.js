@@ -70,6 +70,7 @@ const Checkout = (props) => {
                         />
                     </div>
                     <div className="row-col-1">
+                        <h2 className="heading-2">Your Order</h2>
                         <OrderLayout2 onSubmit={onSubmit} />
                     </div>
                 </div>
