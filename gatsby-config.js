@@ -20,5 +20,14 @@ module.exports = {
                 icon: "src/assets/images/favicon.png",
             },
         },
+        {
+            resolve: 'gatsby-plugin-your-fonts',
+            options: {
+              fonts: [
+                `src/assets/fonts/neue_haas_unica/neue-font.css`,
+                `src/assets/fonts/cooper_lt/cooper-font.css`,
+              ]
+            }
+          }
     ],
 }
