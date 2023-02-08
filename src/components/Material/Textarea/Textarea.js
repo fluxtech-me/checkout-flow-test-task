@@ -10,13 +10,13 @@ const Textarea = (props) => {
         className = "",
         style = {},
         handleResetField = _identity,
-        placeholder,
         label,
         disabled,
         error,
         type = "text",
         readOnly,
         variant = "outlined",
+        placeholder = "",
         value,
         ...inputProps
     } = props;

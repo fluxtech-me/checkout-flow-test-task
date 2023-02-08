@@ -28,7 +28,11 @@ export const OrderLayout2 = (props) => {
         return  (
             <div className="checkout-list">
                 <div className='bordered'>
-                    <CartList data={products} onCountChange={onProductCountChange}/>
+                    <CartList
+                        showDeleteAction={true}
+                        data={products}
+                        onCountChange={onProductCountChange}
+                    />
                     <CouponCode
                         appliedCoupons={appliedCoupons}
                         handleResetField={handleResetField}

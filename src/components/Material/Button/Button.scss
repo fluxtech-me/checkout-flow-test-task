@@ -126,7 +126,7 @@
       opacity: .6;
     }
     span{
-      @include fontVariation(20px, 10px, 400);
+      @include fontVariation(16px, 10px, 400);
       position: relative;
       &:after{
         content: '';
@@ -135,6 +135,11 @@
         bottom: -4px;
         height: 1px;
         background-color: currentColor;
+      }
+    }
+    @include screen(sm){
+      span {
+        font-size: 20px;
       }
     }
   }

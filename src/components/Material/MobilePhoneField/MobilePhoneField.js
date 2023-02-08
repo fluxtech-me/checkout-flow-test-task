@@ -8,6 +8,7 @@ const MobilePhoneField = (props) => {
     const {
         className = "",
         value,
+        label,
         onChange,
     } = props;
 
@@ -15,15 +16,16 @@ const MobilePhoneField = (props) => {
         <div className={cx(
             'phone-field',
             className
-            )
-        }
+        )}
         >
             <PhoneInput
                 placeholder="Enter phone number"
                 value={value}
+                international={true}
                 className="phone-field__input"
                 onChange={onChange}
             />
+            {label && <span className="phone-label">{label}</span>}
         </div>
     );
 };

@@ -8,9 +8,16 @@ const defaultStyles = {
         ...baseStyles,
         borderRadius: "2px",
         width: "100%",
+        height: '42px',
         background: "#FFFFFF",
         border: "0.5px solid #9C9C9C",
-        borderBottom: "1px solid #000000"
+        borderBottom: "1px solid #000000",
+        fontWeight: '400',
+        fontSize: '25px',
+        lineHeight: '32px',
+        '&:focus': {
+            outline: 'none!important',
+        }
     }),
     menu: (baseStyles) => ({
         ...baseStyles,
@@ -43,6 +50,7 @@ export const Select = (props) => {
         >
             <ReactSelect
                 components={components}
+                className={className}
                 classNamePrefix={classNamePrefix}
                 styles={styles}
                 options={options}

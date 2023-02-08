@@ -57,6 +57,7 @@ export const CheckoutForm = (props) => {
                         <Field
                             component = {MobilePhoneField}
                             name = "phone"
+                            label="mobile phone"
                             className="flex-item"
                             onChange={(value) => setFieldValue('phone', value)}
                             value={values.phone}

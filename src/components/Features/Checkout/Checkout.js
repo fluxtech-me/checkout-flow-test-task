@@ -59,9 +59,9 @@ const Checkout = (props) => {
             <div className="container-fluid">
                 <div className="row">
                     <div className="row-col-2">
-                       <CheckoutForm 
-                        initialValues={initialValues} 
-                        onChange={onFormChange} 
+                       <CheckoutForm
+                        initialValues={initialValues}
+                        onChange={onFormChange}
                         onShippingChange={onShippingChange}
                         shippingData={shippingData}
                         />
@@ -71,7 +71,7 @@ const Checkout = (props) => {
                     </div>
                 </div>
             </div>
-            
+
         </section>
     );
 };
