@@ -38,7 +38,6 @@ export const CheckoutForm = (props) => {
             <Formik initialValues={initialValues}>
                 {({ values, setFieldValue }) => {
                     onChange(values)
-
                     return (
                         <Form action="" className="checkout-form">
                             <div className="checkout-form__fieldset">
@@ -76,7 +75,7 @@ export const CheckoutForm = (props) => {
                                         component={InputField}
                                         variant="underlined"
                                         label="First Name"
-                                        value={values.email}
+                                        value={values.firstName}
                                         onChange={(value) =>
                                             setFieldValue("firstName", value)
                                         }
@@ -87,7 +86,7 @@ export const CheckoutForm = (props) => {
                                         component={InputField}
                                         variant="underlined"
                                         label="Last Name"
-                                        value={values.email}
+                                        value={values.lastName}
                                         onChange={(value) =>
                                             setFieldValue("lastName", value)
                                         }
@@ -120,12 +119,12 @@ export const CheckoutForm = (props) => {
                                 <div className="form-mb d-md-flex action-wrapper">
                                     <Field
                                         component={Textarea}
-                                        onChange={(value) =>
+                                        onChange={(event) => {
                                             setFieldValue(
                                                 "address",
-                                                value.value
+                                                event.target.value
                                             )
-                                        }
+                                        }}
                                         variant="underlined"
                                         label="delivery address"
                                         value={values.address}
