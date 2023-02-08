@@ -12,7 +12,7 @@ export const Cheap = (props) => {
     	item,
 		disabled = false,
 		onDelete = _identity,
-		deleteBtnContent = <><span className="icon icon-close"/></>,
+		deleteBtnContent = <span className="icon icon-close"/>,
 		showDeleteComponent = true
 	} = props;
 
