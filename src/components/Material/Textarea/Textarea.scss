@@ -1,0 +1,21 @@
+@import "../../../assets/styles/variables";
+
+.form-input--underlined{
+  $form-input: 'form-input';
+  textarea.form-control{
+    + .form-label{
+      top: auto;
+      bottom: -20px;
+      transform: none;
+    }
+    &:focus + ,
+    &.#{$form-input}--hasValue,
+    .form-control:-webkit-autofill + {
+      .form-label{
+        top: auto;
+        bottom: -20px;
+        transform: none;
+      }
+    }
+  }
+}

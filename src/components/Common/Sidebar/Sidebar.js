@@ -7,9 +7,13 @@ import db from '../../../services/db.js';
 import _findIndex from 'lodash/findIndex';
 import { CouponCode } from '../../Features/Checkout/CouponCode';
 import './Sidebar.scss';
+import cx from 'classnames';
 
-const Sidebar = () => {
-    const isActive = true;
+const Sidebar = (props) => {
+    const {
+        showSidebar,
+        setOpenSidebar,
+    } = props;
     const [products, setProducts] = useState([]);
     const [appliedCoupons, setAppliedCoupons] = useState([]);
     const [code, setCode] = useState("");
@@ -62,22 +66,33 @@ const Sidebar = () => {
 
     return (
         <>
-            <div className="navbar navbar-fixed">
+            <div className={cx(
+                'navbar navbar-fixed',
+                {
+                    'navbar--active' : showSidebar
+                })
+            }
+            >
                 <div className="navbar__heading sticky-top">
                     <Button
+                        onClick={() => setOpenSidebar(false)}
                         type="icon"
                         className="close-btn burger"
                     >
                         <div className="burger__inner">
-                            <span className={`burger__top ${isActive ? 'active' : ''}`} />
-                            <span className={`burger__middle ${isActive ? 'active' : ''}`} />
-                            <span className={`burger__bottom ${isActive ? 'active' : ''}`} />
+                            <span className={`burger__top ${showSidebar ? 'active' : ''}`} />
+                            <span className={`burger__middle ${showSidebar ? 'active' : ''}`} />
+                            <span className={`burger__bottom ${showSidebar ? 'active' : ''}`} />
                         </div>
                     </Button>
-                    <h2 className="heading-2 text-center">Your Cart</h2>
+                    <h2 className="heading-3 text-center">Your Cart</h2>
                 </div>
                 <div className="navbar__content">
-                    <CartList data={products} onCountChange={onProductCountChange}/>
+                    <CartList
+                        data={products}
+                        showDeleteAction={false}
+                        onCountChange={onProductCountChange}
+                    />
                     <CouponCode 
                         appliedCoupons={appliedCoupons}
                         handleResetField={handleResetField}
@@ -92,12 +107,12 @@ const Sidebar = () => {
                         <Button
                             className="w-100"
                             type="primary"
-                            children="Checkout now"
+                            children={<span>Checkout now</span>}
                         />
                     </div>
                 </div>
             </div>
-            <div className="navbar-overlay"/>
+            {showSidebar && <div onClick={() => setOpenSidebar(false)} className="navbar-overlay"/>}
         </>
     );
 };

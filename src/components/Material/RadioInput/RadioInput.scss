@@ -14,7 +14,7 @@
   }
   &[type=radio] + label{
     color: var(--underlined-input-color);
-    @include fontVariation(20px, 38px, 400);
+    @include fontVariation(16px, 38px, 400);
   }
   &[type=radio] + label:before{
     content: "";
@@ -32,14 +32,16 @@
     background-color: var(--black);
     position: absolute;
     left: 5px;
-    top: 12px;
+    top: 11px;
     width: 14px;
     height: 14px;
     border-radius: 50%;
   }
   @include screen(sm) {
-    font-size: 25px;
-    line-height: 38px;
+    &[type=radio] + label {
+      font-size: 25px;
+      line-height: 38px;
+    }
     &[type=radio] + label:before{
       margin-right: 18px;
     }

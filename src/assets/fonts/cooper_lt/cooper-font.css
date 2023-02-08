@@ -1,15 +1,9 @@
 @font-face {
   font-family: 'Cooper Lt BT';
-  src: url('CooperLtBTLight.ttf') format('ttf');
+  src: url('CooperLtBTLight.ttf') format('ttf'),
+      url('CooperLtBTLight.woff') format('woff'),
+  url('CooperLtBTLight.woff2') format('woff2');
   font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Cooper Lt BT';
-  src: url('CooperLtBTBold.ttf') format('ttf');
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
