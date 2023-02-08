@@ -14,7 +14,7 @@ const OrderPricingInfo = (props) => {
     const isShippingUndefined = _isUndefined(shipping)
     const shippingText = isShippingUndefined
         ? "calculated next step"
-        : `$${shipping}`
+        : `$${shipping.toFixed(2)}`
     const shippingValu = isShippingUndefined ? 0 : shipping
 
     const total = subtotal + shippingValu - discount
@@ -23,7 +23,9 @@ const OrderPricingInfo = (props) => {
         <ul className="order-info-list">
             <li className="order-info-list__item">
                 <span className="option regular-text">Subtotal</span>
-                <span className="price-text regular-text">${subtotal}</span>
+                <span className="price-text regular-text">
+                    ${subtotal.toFixed(2)}
+                </span>
             </li>
             <li className="order-info-list__item">
                 <span className="option regular-text">Shipping</span>
@@ -31,12 +33,14 @@ const OrderPricingInfo = (props) => {
             </li>
             <li className="order-info-list__item">
                 <span className="option regular-text">Discount</span>
-                <span className="price-text regular-text">-${discount}</span>
+                <span className="price-text regular-text">
+                    -${discount.toFixed(2)}
+                </span>
             </li>
             <li className="order-info-list__item total">
                 <span className="option medium-text">TOTAL</span>
                 <span className="light medium-text">AUD</span>
-                <b className="price-text medium-text">${total}</b>
+                <b className="price-text medium-text">${total.toFixed(2)}</b>
             </li>
         </ul>
     )

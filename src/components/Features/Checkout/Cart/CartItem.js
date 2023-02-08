@@ -28,7 +28,9 @@ export const CartItem = (props) => {
                         initialCount={item.count}
                         onCountChange={onCountChange}
                     />
-                    <span className="cart-info__price">{item.totalPrice}</span>
+                    <span className="cart-info__price">
+                        {item.totalPrice.toFixed(2)}
+                    </span>
                 </div>
             </div>
         </li>
