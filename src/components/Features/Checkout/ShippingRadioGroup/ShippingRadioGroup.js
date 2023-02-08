@@ -1,5 +1,5 @@
 import React, {useId} from 'react';
-import {RadioInput} from '../../Material/RadioInput';
+import {RadioInput} from '../../../Material/RadioInput';
 import _map from 'lodash/map';
 import cx from 'classnames';
 import './ShippingRadioGroup.scss';

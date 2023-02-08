@@ -1,6 +1,6 @@
-import React, { useMemo, useState} from 'react'
-import {ShippingRadioGroup} from '../../ShippingRadioGroup';
-import {PaymentDetails} from '../../../Features/Checkout/PaymentDetails';
+import React, {useMemo, useState} from 'react'
+import {ShippingRadioGroup} from '../ShippingRadioGroup';
+import {PaymentDetails} from '../PaymentDetails';
 import {MobilePhoneField} from '../../../Material/MobilePhoneField';
 import { Formik, Field, Form } from 'formik';
 import { InputField } from "../../../Material/Formik/InputField";
