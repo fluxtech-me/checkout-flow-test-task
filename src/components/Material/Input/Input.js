@@ -39,7 +39,7 @@ const Input = (props) => {
                 type={type}
                 disabled={disabled}
                 readOnly={readOnly}
-                placeholder={!label && placeholder}
+                placeholder={!label ? placeholder : ""}
                 value={value}
                 {...inputProps}
             />

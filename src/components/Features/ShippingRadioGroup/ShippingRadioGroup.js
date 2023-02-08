@@ -2,9 +2,9 @@ import React, {useId} from 'react';
 import {RadioInput} from '../../Material/RadioInput';
 import _map from 'lodash/map';
 import cx from 'classnames';
-import './RadioGroup.scss';
+import './ShippingRadioGroup.scss';
 
-export const RadioGroup = (props) => {
+export const ShippingRadioGroup = (props) => {
 
     const {
         className = "",
@@ -29,15 +29,14 @@ export const RadioGroup = (props) => {
             style={style}
         >
             {_map(options, (option, index) => (
-                <li className="checkout-options__item">
+                <li key={option.value} className="checkout-options__item">
                     <RadioInput
                         option={option}
                         defaultValue={defaultValue}
                         id={id + index}
-                        key={option.value}
                         {...inputProps}
                     />
-                    <span className="price medium-text">$0.00</span>
+                    <span className="price medium-text">${option.price}</span>
                 </li>
             ))}
         </ul>
