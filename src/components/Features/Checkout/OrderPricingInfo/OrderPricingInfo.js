@@ -1,16 +1,21 @@
 import React from 'react';
 import _reduce from 'lodash/reduce'
 import _forEach from 'lodash/forEach'
+import _isUndefined from 'lodash/isUndefined'
 import './OrderPricingInfo.scss';
 
 const OrderPricingInfo = (props) => {
-    const { productsData, applayedCoupons, shipping } = props;
+    const { productsData, appliedCoupons, shipping } = props;
     let discount = 0
     let subtotal = 0
-    _forEach(applayedCoupons, coupon => discount+=coupon.sale)
+    _forEach(appliedCoupons, coupon => discount+=coupon.sale)
     _forEach(productsData, product => subtotal+=product.totalPrice)
 
-    const total = subtotal + shipping - discount
+    const isShippingUndefined = _isUndefined(shipping)
+    const shippingText = isShippingUndefined ? 'calculated next step' : `$${shipping}`
+    const shippingValu = isShippingUndefined ? 0 : shipping
+    
+    const total = subtotal + shippingValu - discount
 
     return (
       <ul className="order-info-list">
@@ -20,7 +25,7 @@ const OrderPricingInfo = (props) => {
           </li>
           <li className="order-info-list__item">
               <span className="option regular-text">Shipping</span>
-              <span className="price-text regular-text">${shipping}</span>
+              <span className="price-text regular-text">{shippingText}</span>
           </li>
           <li className="order-info-list__item">
               <span className="option regular-text">Discount</span>
