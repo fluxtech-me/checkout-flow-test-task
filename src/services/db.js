@@ -1,6 +1,7 @@
 import cartItemImg from '../assets/images/cart-item-img.png';
 import _filter from 'lodash/filter'
 import _findIndex from 'lodash/findIndex'
+import _map from 'lodash/map'
 import { nanoid } from 'nanoid';
 import { getRandomNumber } from '../utils/getRandomNumber';
 
@@ -23,7 +24,21 @@ class DB {
             image: cartItemImg,
         },
     ];
-    applayedCoupons = []
+    applaiedCoupons = []
+    countriesList = [
+        { value: 'Italy', label: 'Italy' },
+        { value: 'France', label: 'France' },
+        { value: 'USA', label: 'USA' },
+        { value: 'Germany', label: 'Germany' },
+    ]
+    shippingData = [
+        { label: 'Free Shipping', value: 'free', price: 0.00, selected: true},
+        { label: 'Standard Shipping', value: 'standard', price: 10.00, selected: false},
+        { label: 'Express Shipping', value: 'express', price: 30.00, selected: false},
+    ]
+    checkoutData = {
+
+    }
     getProducts() {
         return this.products
     }
@@ -42,8 +57,8 @@ class DB {
     deleteProduct(id) {
         this.products = [... _filter(this.products, product => product.id !== id)]
     }
-    getApplayedCoupons() {
-        return this.applayedCoupons
+    getApplaiedCoupons() {
+        return this.applaiedCoupons
     }
     addCoupon(couponCode) {
         const newCoupon = {
@@ -51,11 +66,32 @@ class DB {
             id: nanoid(),
             sale: getRandomNumber(0, 50)
         }
-        const newApplayedCoupons = [...this.applayedCoupons, newCoupon]
-        this.applayedCoupons = newApplayedCoupons
+        const newApplaiedCoupons = [...this.applaiedCoupons, newCoupon]
+        this.applaiedCoupons = newApplaiedCoupons
     }
     deleteCoupon(id) {
-        this.applayedCoupons = [..._filter(this.applayedCoupons, applayedCoupon => applayedCoupon.id !== id) ]
+        this.applaiedCoupons = [..._filter(this.applaiedCoupons, applaiedCoupon => applaiedCoupon.id !== id) ]
+    }
+    getCountriesList() {
+        return this.countriesList
+    }
+    getShippingData() {
+        return this.shippingData
+    }
+    selectShippingData(value) {
+        const updatedShippingData = _map(this.shippingData,
+            shipping => (
+                {...shipping, selected: value === shipping.value ? true : false}
+            )
+        )
+        this.shippingData = updatedShippingData
+    }
+    getCheckoutData() {
+        return this.checkoutData
+    }
+    updatedCheckoutData(newData) {
+        this.checkoutData = newData
+        return this.checkoutData
     }
 }
 

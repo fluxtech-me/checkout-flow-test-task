@@ -1,5 +1,5 @@
 import React from 'react';
-import {Counter} from '../../Home/Counter';
+import {Counter} from '../../Counter';
 import {Button} from '../../../Material/Button';
 
 export const CartItem = (props) => {

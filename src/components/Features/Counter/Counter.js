@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from "react";
-import {Button} from '../../../Material/Button';
+import {Button} from '../../Material/Button';
 import _identity from 'lodash/identity';
 import cx from 'classnames';
 import './Counter.scss';
