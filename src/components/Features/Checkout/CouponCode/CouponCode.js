@@ -13,6 +13,7 @@ export const CouponCode = (props) => {
         deleteCoupon,
         handleResetField,
         changeCode,
+        canApplayCoupon,
     } = props
 
     const [isOpenApplyPart, setIsOpenApplyPart] = useState(false)
@@ -23,7 +24,7 @@ export const CouponCode = (props) => {
 
     const handleInputApplay = (event) => {
         const { target, keyCode } = event
-        keyCode === 13 && target.value && applyCoupon()
+        keyCode === 13 && target.value && canApplayCoupon && applyCoupon()
     }
 
     return (
@@ -40,6 +41,11 @@ export const CouponCode = (props) => {
             ) : (
                 <div className="coupon-field__form w-100">
                     <div className="field">
+                        {!canApplayCoupon && (
+                            <span className="hint-msg">
+                                You are hiting coupons limit
+                            </span>
+                        )}
                         <Input
                             placeholder="Coupon Code"
                             onChange={changeCode}
@@ -48,7 +54,7 @@ export const CouponCode = (props) => {
                             onKeyDown={handleInputApplay}
                         />
                         <Button
-                            disabled={!code}
+                            disabled={!code || !canApplayCoupon}
                             className="apply-btn"
                             onClick={applyCoupon}
                         >

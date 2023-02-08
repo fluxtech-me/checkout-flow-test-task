@@ -65,7 +65,7 @@
         span {
             transition: transform 0.2s ease-out;
         }
-        &:hover span {
+        &:not(:disabled):hover span {
             transform: scale(1.06);
         }
         &:before {
@@ -140,7 +140,7 @@
             opacity: 0.6;
         }
         span {
-            @include fontVariation(16px, 10px, 400);
+            @include fontVariation(16px, 10px, 300);
             position: relative;
             &:after {
                 content: "";

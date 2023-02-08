@@ -80,6 +80,33 @@
             }
         }
     }
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 50px 0;
+        &__text {
+            @include fontVariation(18px, 1.3, 300);
+            color: var(--footer-text-color);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        &__list {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &__item {
+                margin: 0 15px;
+                img {
+                    max-width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+
     @include screen(sm) {
         .checkout-form {
             &__fieldset {
@@ -146,6 +173,22 @@
                     }
                 }
             }
+        }
+        .checkout-list {
+            .coupon-box {
+                &__content {
+                    padding-right: 20px;
+                    .regular-text:not(.price-content) {
+                        font-size: 18px;
+                        @include lineClamp(3);
+                    }
+                }
+            }
+        }
+    }
+    @include screen(lg) {
+        .footer {
+            padding: 130px 0 100px;
         }
     }
 }

@@ -27,6 +27,9 @@
         .order-info-list {
             margin-top: auto;
         }
+        .coupon-field {
+            min-height: 55px;
+        }
     }
     &__heading {
         position: relative;
@@ -34,7 +37,7 @@
         .close-btn {
             position: absolute;
             top: 50%;
-            left: 0;
+            left: 12px;
             transform: translateY(calc(-50% + 10px));
             border: none;
             background-color: transparent;
@@ -48,11 +51,14 @@
     bottom: 0;
     padding: {
         top: 10px;
-        bottom: 40px;
+        bottom: 20px;
     }
     z-index: 1;
     .btn {
         width: 100%;
+    }
+    @include screen(sm) {
+        padding-bottom: 40px;
     }
 }
 .sticky-top {
@@ -78,7 +84,7 @@
     position: relative;
     border: none;
     &__inner {
-        width: 18px;
+        width: 20px;
         height: 14px;
         position: absolute;
         left: 50%;
@@ -88,6 +94,7 @@
             position: absolute;
             width: 22px;
             height: 1.5px;
+            left: 0;
             transition: 0.2s ease 0s;
             transition-property: transform, opacity;
             border-radius: 4px;

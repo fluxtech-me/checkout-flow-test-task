@@ -32,7 +32,9 @@ export const ShippingRadioGroup = (props) => {
                         id={id + index}
                         {...inputProps}
                     />
-                    <span className="price medium-text">${option.price}</span>
+                    <span className="price medium-text">
+                        ${option.price.toFixed(2)}
+                    </span>
                 </li>
             ))}
         </ul>
