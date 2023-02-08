@@ -16,8 +16,14 @@ const customStyles = {
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
         border: 'none',
-        background: 'none',
-        padding: '0'
+        backgroundColor: 'white',
+        borderRadius: '6px',
+        padding: '0',
+        minWidth: '400px',
+        minHeight: '200px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 };
 

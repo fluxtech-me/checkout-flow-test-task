@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .medium-text {
-  @include fontVariation(20px, 28px, 500);
+  @include fontVariation(16px, 28px, 500);
 }
 
 .medium-light-text{
@@ -84,12 +84,12 @@ h1, h2, h3, h4, h5, h6 {
 
 @include screen(sm) {
   .heading-1{
-    font-size: 60px;
-    line-height: 72px;
+    font-size: 44px;
+    line-height: 52px;
   }
   .heading-2{
-    font-size: 40px;
-    line-height: 60px;
+    font-size: 30px;
+    line-height: 50px;
   }
   .heading-3{
     font-size: 35px;
@@ -102,9 +102,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 20px;
     line-height: 30px;
   }
-}
-
-@include screen(sm) {
   .row{
     display: flex;
     flex-wrap: wrap;
@@ -118,6 +115,7 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 40%;
   }
 }
+
 @include screen(md) {
   .row-col-2{
     flex: 0 0 70%;
@@ -126,5 +124,15 @@ h1, h2, h3, h4, h5, h6 {
   .row-col-1{
     flex: 0 0 30%;
     max-width: 30%;
+  }
+}
+@include screen(lg) {
+  .heading-1{
+    font-size: 60px;
+    line-height: 72px;
+  }
+  .heading-2{
+    font-size: 40px;
+    line-height: 60px;
   }
 }

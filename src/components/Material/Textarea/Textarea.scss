@@ -1,0 +1,16 @@
+@import "../../../assets/styles/variables";
+
+.form-input--underlined{
+  $form-input: 'form-input';
+  textarea.form-control{
+    &:focus + ,
+    &.#{$form-input}--hasValue,
+    &:-webkit-autofill + {
+      background-color: orange;
+
+      .form-label{
+        transform: translate(2px, 90px);
+      }
+    }
+  }
+}

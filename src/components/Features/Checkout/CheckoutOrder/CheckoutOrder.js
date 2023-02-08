@@ -41,7 +41,7 @@ export const CheckoutOrder = () => {
                 <Button
                     className="w-100"
                     type="primary"
-                    children="Pay now"
+                    children={<span>Pay now</span>}
                 />
                 <CouponBox />
             </div>

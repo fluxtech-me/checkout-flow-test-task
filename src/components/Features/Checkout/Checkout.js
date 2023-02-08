@@ -5,18 +5,23 @@ import {PaymentDetails} from '../../Features/Checkout/PaymentDetails';
 import {MobilePhoneField} from '../../Material/MobilePhoneField';
 import { CheckoutOrder } from "./CheckoutOrder";
 import { Formik, Field, Form } from 'formik';
-import './Checkout.scss'
 import { InputField } from "../../Material/Formik/InputField";
 import { SelectField } from "../../Material/Formik/SelectField/SelectField";
 import db from "../../../services/db";
 import _find from 'lodash/find'
+import {Textarea} from '../../Material/Textarea';
+import {Button} from '../../Material/Button';
+import {Modal} from '../../Material/Modal';
+import './Checkout.scss'
 
 const Checkout = (props) => {
 
     const {onCheckoutSuccess, onCheckoutFail} = props
 
-    const [shippingData, setShippingData] = useState([])
-    const [countriesList, setCountryList] = useState([])
+    const [shippingData, setShippingData] = useState([]);
+    const [countriesList, setCountryList] = useState([]);
+    const [deliveryAddressContent, setDeliveryAddressContent] = useState("Unit 56, 20 Campbell Parade, Bondi Beach, Whatever unit block, NSW, 2026 goes over 2 lines if it’s long address");
+    const [showModal, setShowModal] = useState(false);
 
     const getData = () => {
         const countriesList = db.getCountriesList()
@@ -43,6 +48,18 @@ const Checkout = (props) => {
         }
     }
 
+    const renderModalContent = () => {
+        return (
+            <div>
+                <h2>Modal content</h2>
+            </div>
+        );
+    };
+
+    const handleFieldReset = () => {
+        setDeliveryAddressContent("");
+    };
+
     const initialValues = {email: '', phone: '', firstName: '', lastName: '', country: ''}
 
     useEffect(() => {
@@ -50,6 +67,15 @@ const Checkout = (props) => {
     })
 
     const selectedShipping = _find(shippingData, shipping => shipping.selected === true)
+
+    const handleOpenModal = (e) => {
+        e.preventDefault();
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
 
     return (
         <section className="checkout-page">
@@ -91,7 +117,7 @@ const Checkout = (props) => {
                                             label="First Name"
                                             value={values.email}
                                             onChange={(value) => setFieldValue('firstName', value)}
-                                            className="form-mb"
+                                            className="form-mb flex-item"
                                             name='firstName'
                                         />
                                         <Field 
@@ -100,7 +126,7 @@ const Checkout = (props) => {
                                             label="Last Name"
                                             value={values.email}
                                             onChange={(value) => setFieldValue('lastName', value)}
-                                            className="form-mb"
+                                            className="form-mb flex-item"
                                             name='lastName'
                                         />
                                     </div>
@@ -117,30 +143,54 @@ const Checkout = (props) => {
                                             options={countriesList}
                                         />
                                     </div>
+                                    <div className="form-mb d-md-flex action-wrapper">
+                                        <Textarea
+                                            readOnly={true}
+                                            variant="underlined"
+                                            label="delivery address"
+                                            value={deliveryAddressContent}
+                                        />
+                                        <Button
+                                            type="link"
+                                            className="update-btn"
+                                            onClick={handleFieldReset}
+                                            children={<span>change</span>}
+                                        />
+                                    </div>
                                 </div>
                                 <div className="checkout-form__fieldset">
-                                    <h2 className="heading-2">Your Details</h2>
                                     <ShippingRadioGroup
                                         onChange={onShippingChange}
                                         options={shippingData}
                                         defaultValue={selectedShipping?.value}
                                     />
+                                    <Button
+                                        type="link"
+                                        className="update-btn"
+                                        onClick={handleOpenModal}
+                                        children={<span>about shipping</span>}
+                                    />
                                 </div>
                                 <div className="checkout-form__fieldset">
-                                    <h2 className="heading-2">Payment Details</h2>
-                                    <PaymentDetails />
+                                    <div className="checkout-form__fieldset">
+                                        <h2 className="heading-2">Payment Details</h2>
+                                        <PaymentDetails />
+                                    </div>
                                 </div>
-                                <button type="submit">asdasd</button>
                             </Form>
                         )}
                        </Formik>
                     </div>
                     <div className="row-col-1">
-                        <h2 className="heading-2">Your Order</h2>
                         <CheckoutOrder />
                     </div>
                 </div>
             </div>
+            <Modal
+                open={showModal}
+                onClose={handleCloseModal}
+                children={renderModalContent()}
+            />
         </section>
     );
 };

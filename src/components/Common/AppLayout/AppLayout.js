@@ -5,7 +5,7 @@ import '../../../assets/styles/index.scss';
 
 const AppLayout = (props) => {
     const {children} = props
-    return <main>{children}</main>
+    return children;
 }
 
 export {AppLayout}

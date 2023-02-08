@@ -30,9 +30,8 @@ export const CouponCode = (props) => {
                         <Button
                             type="link"
                             onClick={handleEnterCode}
-                        >
-                            <span>Enter Code</span>
-                        </Button>
+                            children={<span>Enter Code</span>}
+                        />
                     </div>
                 ) : (
                     <div className="coupon-field__form w-100">

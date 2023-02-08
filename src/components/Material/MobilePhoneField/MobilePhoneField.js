@@ -23,6 +23,7 @@ const MobilePhoneField = (props) => {
             <PhoneInput
                 placeholder="Enter phone number"
                 value={value}
+                className="phone-field__input"
                 onChange={onChange}
             />
         </div>
