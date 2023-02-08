@@ -3,18 +3,13 @@
 .form-input--underlined{
   $form-input: 'form-input';
   textarea.form-control{
-    + .form-label{
-      top: auto;
-      bottom: -20px;
-      transform: none;
-    }
     &:focus + ,
     &.#{$form-input}--hasValue,
-    .form-control:-webkit-autofill + {
+    &:-webkit-autofill + {
+      background-color: orange;
+
       .form-label{
-        top: auto;
-        bottom: -20px;
-        transform: none;
+        transform: translate(2px, 90px);
       }
     }
   }

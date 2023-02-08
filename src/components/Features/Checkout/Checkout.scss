@@ -11,6 +11,7 @@
     max-width: 713px;
     &__fieldset{
       margin-bottom: 24px;
+      position: relative;
       .form-mb{
         margin-bottom: 30px;
         .regular-text{
@@ -19,17 +20,19 @@
         }
         &:not(:only-of-type):not(.action-wrapper):last-of-type{
           margin-bottom: 0;
-
         }
-        &.action-wrapper{
-          margin-bottom: 83px;
-          position: relative;
-          .update-btn{
-            position: absolute;
-            bottom: -25px;
-            right: 4px;
-          }
+      }
+      .action-wrapper{
+        margin: 50px 0 83px;
+        position: relative;
+        .update-btn{
+          bottom: -25px;
         }
+      }
+      .update-btn{
+        position: absolute;
+        bottom: -28px;
+        right: 4px;
       }
       .checkout-options {
         margin-bottom: 54px;
@@ -40,15 +43,13 @@
     margin: 0 0 24px;
   }
   .checkout-list{
+    width: auto;
     .bordered{
       background: #FFFFFF;
       border: 1px solid #9E9E9E;
       border-radius: 9px;
       padding: 14px 14px 20px;
       margin-bottom: 23px;
-    }
-    .btn{
-      width: 100%;
     }
     .coupon-box{
       margin: 23px 0;
@@ -79,9 +80,8 @@
     .checkout-form {
       &__fieldset {
         .form-mb {
-          margin-bottom: 52px;
           .regular-text{
-            margin-top: 0px;
+            margin-top: 0;
           }
         }
       }
