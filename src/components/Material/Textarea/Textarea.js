@@ -39,7 +39,7 @@ const Textarea = (props) => {
                 className="form-control"
                 disabled={disabled}
                 readOnly={readOnly}
-                placeholder={!label && placeholder}
+                placeholder={!label ? placeholder: ""}
                 value={value}
                 {...inputProps}
             />

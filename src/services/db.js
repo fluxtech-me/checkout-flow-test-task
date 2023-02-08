@@ -4,7 +4,6 @@ import _findIndex from 'lodash/findIndex'
 import _map from 'lodash/map'
 import { nanoid } from 'nanoid';
 import { getRandomNumber } from '../utils/getRandomNumber';
-
 class DB {
     products = [
         {
@@ -25,12 +24,6 @@ class DB {
         },
     ];
     applaiedCoupons = []
-    countriesList = [
-        { value: 'Italy', label: 'Italy' },
-        { value: 'France', label: 'France' },
-        { value: 'USA', label: 'USA' },
-        { value: 'Germany', label: 'Germany' },
-    ]
     shippingData = [
         { label: 'Free Shipping', value: 'free', price: 0.00, selected: true},
         { label: 'Standard Shipping', value: 'standard', price: 10.00, selected: false},
