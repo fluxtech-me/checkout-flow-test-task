@@ -6,6 +6,8 @@ import { CouponCode } from "../CouponCode"
 import { Order } from "../Order"
 import { OrderPricingInfo } from "../OrderPricingInfo/OrderPricingInfo"
 import { navigate } from "gatsby"
+import _isEmpty from "lodash/isEmpty"
+import _forEach from "lodash/forEach"
 
 export const OrderLayout1 = () => {
     return (
@@ -20,6 +22,8 @@ export const OrderLayout1 = () => {
                     deleteCoupon,
                     changeCode,
                     code,
+                    canCheckout,
+                    canApplayCoupon,
                 } = orderService
 
                 const handleCheckoutNow = () => {
@@ -32,14 +36,17 @@ export const OrderLayout1 = () => {
                             data={products}
                             onCountChange={onProductCountChange}
                         />
-                        <CouponCode
-                            appliedCoupons={appliedCoupons}
-                            handleResetField={handleResetField}
-                            applyCoupon={applyCoupon}
-                            deleteCoupon={deleteCoupon}
-                            changeCode={changeCode}
-                            code={code}
-                        />
+                        {canCheckout && (
+                            <CouponCode
+                                appliedCoupons={appliedCoupons}
+                                handleResetField={handleResetField}
+                                applyCoupon={applyCoupon}
+                                deleteCoupon={deleteCoupon}
+                                changeCode={changeCode}
+                                code={code}
+                                canApplayCoupon={canApplayCoupon}
+                            />
+                        )}
                         <CouponBox />
                         <OrderPricingInfo
                             appliedCoupons={appliedCoupons}
@@ -51,6 +58,7 @@ export const OrderLayout1 = () => {
                                 type="primary"
                                 children={<span>Checkout now</span>}
                                 onClick={handleCheckoutNow}
+                                disabled={!canCheckout}
                             />
                         </div>
                     </div>

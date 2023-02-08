@@ -13,6 +13,7 @@ export const CouponCode = (props) => {
         deleteCoupon,
         handleResetField,
         changeCode,
+        canApplayCoupon,
     } = props
 
     const [isOpenApplyPart, setIsOpenApplyPart] = useState(false)
@@ -23,7 +24,7 @@ export const CouponCode = (props) => {
 
     const handleInputApplay = (event) => {
         const { target, keyCode } = event
-        keyCode === 13 && target.value && applyCoupon()
+        keyCode === 13 && target.value && canApplayCoupon && applyCoupon()
     }
 
     return (
@@ -48,7 +49,7 @@ export const CouponCode = (props) => {
                             onKeyDown={handleInputApplay}
                         />
                         <Button
-                            disabled={!code}
+                            disabled={!code || !canApplayCoupon}
                             className="apply-btn"
                             onClick={applyCoupon}
                         >

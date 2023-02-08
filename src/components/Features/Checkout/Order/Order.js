@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import _findIndex from "lodash/findIndex"
 import db from "../../../../services/db"
+import _forEach from "lodash/forEach"
+import _isEmpty from "lodash/isEmpty"
 
 export const Order = (props) => {
     const [products, setProducts] = useState([])
@@ -55,6 +57,13 @@ export const Order = (props) => {
         setCode(event.target.value)
     }
 
+    let couponDiscount = 0
+    let orderPrice = 0
+    _forEach(appliedCoupons, (couopon) => (couponDiscount += couopon.sale))
+    _forEach(products, (product) => (orderPrice += product.totalPrice))
+    const canApplayCoupon = orderPrice - couponDiscount > 50
+    const canCheckout = !_isEmpty(products)
+
     return props.render({
         shippingData,
         onProductCountChange,
@@ -65,5 +74,7 @@ export const Order = (props) => {
         appliedCoupons,
         code,
         products,
+        canCheckout,
+        canApplayCoupon,
     })
 }
