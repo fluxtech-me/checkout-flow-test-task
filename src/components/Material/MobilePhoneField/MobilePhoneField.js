@@ -1,6 +1,4 @@
 import React from 'react';
-import {Select} from '../Select';
-import {Input} from '../Input';
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
 import cx from 'classnames';
