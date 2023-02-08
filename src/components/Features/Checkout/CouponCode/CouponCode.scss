@@ -22,6 +22,15 @@
     &__form {
         .field {
             margin-bottom: 15px;
+            position: relative;
+            .hint-msg{
+                position: absolute;
+                top: -14px;
+                left: 0;
+                font-size: 12px;
+                font-style: italic;
+                opacity: .8;
+            }
         }
         .apply-btn {
             min-width: 116px;
