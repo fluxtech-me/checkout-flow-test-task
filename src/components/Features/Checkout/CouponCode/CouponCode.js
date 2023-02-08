@@ -42,7 +42,9 @@ export const CouponCode = (props) => {
                 <div className="coupon-field__form w-100">
                     <div className="field">
                         {!canApplayCoupon && (
-                            <span className="hint-msg">You are hiting coupons limit</span>
+                            <span className="hint-msg">
+                                You are hiting coupons limit
+                            </span>
                         )}
                         <Input
                             placeholder="Coupon Code"

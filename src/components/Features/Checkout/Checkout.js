@@ -5,8 +5,8 @@ import { OrderLayout2 } from "./Order/OrderLayout2"
 import { CheckoutForm } from "./CheckoutForm/CheckoutForm"
 import _identity from "lodash/identity"
 import _isEmpty from "lodash/isEmpty"
-import sha from '../../../assets/images/sha.png';
-import check from '../../../assets/images/check.png';
+import sha from "../../../assets/images/sha.png"
+import check from "../../../assets/images/check.png"
 import "./Checkout.scss"
 
 const Checkout = (props) => {
@@ -89,8 +89,22 @@ const Checkout = (props) => {
                 <div className="container-fluid">
                     <p className="footer__text">Secured & Encrypted Checkout</p>
                     <ul className="footer__list">
-                        <li className="footer__list__item"><img width="65" height="69" src={check} alt="Sha image"/></li>
-                        <li className="footer__list__item"><img width="98" height="73" src={sha} alt="Sha image"/></li>
+                        <li className="footer__list__item">
+                            <img
+                                width="65"
+                                height="69"
+                                src={check}
+                                alt="Sha image"
+                            />
+                        </li>
+                        <li className="footer__list__item">
+                            <img
+                                width="98"
+                                height="73"
+                                src={sha}
+                                alt="Sha image"
+                            />
+                        </li>
                     </ul>
                 </div>
             </footer>
