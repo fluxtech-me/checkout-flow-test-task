@@ -7,7 +7,7 @@ import { Order } from "../Order"
 import { OrderPricingInfo } from "../OrderPricingInfo/OrderPricingInfo"
 import _find from 'lodash/find'
 
-export const CheckoutOrder = () => {
+export const OrderLayout2 = () => {
     return <Order render={ orderService => {
         const {
             products,

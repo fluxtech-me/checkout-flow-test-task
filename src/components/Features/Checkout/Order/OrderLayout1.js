@@ -7,7 +7,7 @@ import { Order} from "../Order"
 import { OrderPricingInfo } from "../OrderPricingInfo/OrderPricingInfo"
 import { navigate } from "gatsby"
 
-export const SidebarOrder = () => {
+export const OrderLayout1 = () => {
     return <Order render={ orderService => {
         const {
             products,

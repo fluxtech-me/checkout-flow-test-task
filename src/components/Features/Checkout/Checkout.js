@@ -3,7 +3,6 @@ import {CheckoutHeader} from '../../Common/Header';
 import {ShippingRadioGroup} from '../ShippingRadioGroup';
 import {PaymentDetails} from '../../Features/Checkout/PaymentDetails';
 import {MobilePhoneField} from '../../Material/MobilePhoneField';
-import { CheckoutOrder } from "./CheckoutOrder";
 import { Formik, Field, Form } from 'formik';
 import { InputField } from "../../Material/Formik/InputField";
 import { SelectField } from "../../Material/Formik/SelectField/SelectField";
@@ -13,6 +12,7 @@ import {Textarea} from '../../Material/Textarea';
 import {Button} from '../../Material/Button';
 import {Modal} from '../../Material/Modal';
 import './Checkout.scss'
+import { OrderLayout2 } from "./Order/OrderLayout2";
 
 const Checkout = (props) => {
 
@@ -186,7 +186,7 @@ const Checkout = (props) => {
                        </Formik>
                     </div>
                     <div className="row-col-1">
-                        <CheckoutOrder />
+                        <OrderLayout2 />
                     </div>
                 </div>
             </div>

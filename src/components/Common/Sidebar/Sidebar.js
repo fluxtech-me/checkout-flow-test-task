@@ -1,9 +1,9 @@
 import React from 'react';
 import {Button} from '../../Material/Button';
-import { SidebarOrder } from '../../Features/Checkout/SidebarOrder';
 import _identity from "lodash/identity";
 import cx from 'classnames';
 import './Sidebar.scss';
+import { OrderLayout1 } from '../../Features/Checkout/Order/OrderLayout1';
 
 const Sidebar = (props) => {
     const {
@@ -34,7 +34,7 @@ const Sidebar = (props) => {
                     </Button>
                     <h2 className="heading-3 text-center">Your Cart</h2>
                 </div>
-                <SidebarOrder/>
+                <OrderLayout1/>
             </div>
             {showSidebar && <div onClick={() => setOpenSidebar(false)} className="navbar-overlay"/>}
         </>
