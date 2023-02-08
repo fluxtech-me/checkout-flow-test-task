@@ -1,4 +1,5 @@
 import cartItemImg from '../assets/images/cart-item-img.png';
+import cartItemImg2 from '../assets/images/cat-carpet-img.png'
 import _filter from 'lodash/filter'
 import _findIndex from 'lodash/findIndex'
 import _map from 'lodash/map'
@@ -9,14 +10,14 @@ class DB {
         {
             id: 1,
             name: 'Bouclé Bungalow “Creme” Cover Bouclé Bungalow “Creme” Cover',
-            price: 200.00,
+            price: 239.00,
             count: 1,
-            totalPrice: 200.00,
-            image: cartItemImg,
+            totalPrice: 239.00,
+            image: cartItemImg2,
         },
         {
             id: 2,
-            name: 'Bouclé Bungalow “Creme” Cover Bouclé Bungalow “Creme” Cover',
+            name: 'Replacement Cover in "Catnip"',
             price: 129.00,
             count: 1,
             totalPrice: 129.00,

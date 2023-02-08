@@ -30,7 +30,7 @@ export const OrderLayout1 = () => {
                 <CouponCode
                     appliedCoupons={appliedCoupons}
                     handleResetField={handleResetField}
-                    appliedCoupon={applyCoupon}
+                    applyCoupon={applyCoupon}
                     deleteCoupon={deleteCoupon} 
                     changeCode={changeCode}
                     code={code}
