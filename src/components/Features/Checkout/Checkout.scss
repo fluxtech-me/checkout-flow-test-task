@@ -28,9 +28,6 @@
         .update-btn{
           bottom: -25px;
         }
-        .form-label{
-          //top: 12px;
-        }
       }
       .update-btn{
         position: absolute;
@@ -39,11 +36,6 @@
       }
       .checkout-options {
         margin-bottom: 54px;
-      }
-      &.phone-select-field{
-        //@include media-breakpoint-between() {
-        //
-        //}
       }
     }
   }
@@ -84,12 +76,6 @@
       }
     }
   }
-  .custom-select{
-    #react-select-2-input{
-
-    }
-  }
-
   @include screen(sm) {
     .checkout-form {
       &__fieldset {
@@ -119,6 +105,16 @@
             margin-right: 40px;
           }
         }
+        &.xs-row{
+          flex-direction: column;
+          .regular-text{
+            margin-top: 40px;
+          }
+          .flex-item, .phone-field__input{
+            max-width: 100%;
+            margin-right: 0;
+          }
+        }
       }
     }
     .payment-details{
@@ -127,6 +123,22 @@
         img{
           height: initial;
           width: initial;
+        }
+      }
+    }
+  }
+  @include screen(md) {
+    .checkout-form {
+      .d-md-flex {
+        &.xs-row {
+          flex-direction: row;
+          .regular-text {
+            margin-top: 0;
+          }
+          .flex-item {
+            max-width: 100%;
+            margin-right: 40px;
+          }
         }
       }
     }

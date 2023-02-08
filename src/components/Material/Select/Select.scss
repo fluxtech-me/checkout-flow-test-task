@@ -18,3 +18,28 @@
     }
   }
 }
+.field-select__indicator{
+  position: relative;
+  margin-right: 8px;
+  &:before{
+    content: '\e904';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    opacity: 1;
+    right: 15px;
+    color: var(--black);
+    font-family: 'Icomoon';
+  }
+  svg{
+    opacity: 0;
+  }
+}
+.field-select__single-value{
+  font-size: 16px;
+  @include screen(sm) {
+    font-size: 28px;
+  }
+}

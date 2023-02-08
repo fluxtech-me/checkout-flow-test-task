@@ -53,7 +53,7 @@ export const CheckoutForm = (props) => {
                         className="form-mb"
                         name='email'
                     />
-                    <div className="form-mb d-md-flex">
+                    <div className="form-mb d-md-flex xs-row">
                         <Field
                             component = {MobilePhoneField}
                             name = "phone"

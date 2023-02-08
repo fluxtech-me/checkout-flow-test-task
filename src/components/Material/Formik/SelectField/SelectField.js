@@ -19,7 +19,7 @@ export const SelectField = (props) => {
 
     return <Select
         {...selectProps}
-
+        classNamePrefix="field-select"
         onChange={onHandleChange}
         error={error}
         selectedId={field.value}
