@@ -22,7 +22,6 @@ export const CheckoutForm = (props) => {
         () => _find(shippingData, (shipping) => shipping.selected === true),
         [shippingData]
     )
-
     const [showModal, setShowModal] = useState(false)
 
     const handleOpenModal = (e) => {

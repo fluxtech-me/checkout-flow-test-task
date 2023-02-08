@@ -6,6 +6,8 @@ import { CouponCode } from "../CouponCode"
 import { Order } from "../Order"
 import { OrderPricingInfo } from "../OrderPricingInfo/OrderPricingInfo"
 import _find from "lodash/find"
+import _isEmpty from "lodash/isEmpty"
+import _forEach from "lodash/forEach"
 
 export const OrderLayout2 = (props) => {
     const { onSubmit } = props
@@ -23,6 +25,8 @@ export const OrderLayout2 = (props) => {
                     changeCode,
                     code,
                     shippingData,
+                    canCheckout,
+                    canApplayCoupon,
                 } = orderService
 
                 const shippingPrice = _find(
@@ -38,14 +42,17 @@ export const OrderLayout2 = (props) => {
                                 data={products}
                                 onCountChange={onProductCountChange}
                             />
-                            <CouponCode
-                                appliedCoupons={appliedCoupons}
-                                handleResetField={handleResetField}
-                                applyCoupon={applyCoupon}
-                                deleteCoupon={deleteCoupon}
-                                changeCode={changeCode}
-                                code={code}
-                            />
+                            {canCheckout && (
+                                <CouponCode
+                                    appliedCoupons={appliedCoupons}
+                                    handleResetField={handleResetField}
+                                    applyCoupon={applyCoupon}
+                                    deleteCoupon={deleteCoupon}
+                                    changeCode={changeCode}
+                                    code={code}
+                                    canApplayCoupon={canApplayCoupon}
+                                />
+                            )}
                             <OrderPricingInfo
                                 shipping={shippingPrice || 0}
                                 appliedCoupons={appliedCoupons}
@@ -58,6 +65,7 @@ export const OrderLayout2 = (props) => {
                             type="primary"
                             onClick={onSubmit}
                             children={<span>Pay now</span>}
+                            disabled={!canCheckout}
                         />
                         <CouponBox />
                     </div>

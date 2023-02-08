@@ -6,15 +6,19 @@ import "./Checkout.scss"
 import { OrderLayout2 } from "./Order/OrderLayout2"
 import { CheckoutForm } from "./CheckoutForm/CheckoutForm"
 import _identity from "lodash/identity"
+import _isEmpty from "lodash/isEmpty"
 
 const Checkout = (props) => {
     const { onCheckoutSuccess = _identity, onCheckoutFail = _identity } = props
 
     const [shippingData, setShippingData] = useState([])
+    const [products, setProducts] = useState([])
     const formValues = useRef({})
 
     const getData = () => {
         const shippingData = db.getShippingData()
+        const products = db.getProducts()
+        setProducts(products)
         setShippingData(shippingData)
     }
 
@@ -26,6 +30,10 @@ const Checkout = (props) => {
     const onFormChange = (values) => {
         formValues.current = values
     }
+
+    useEffect(() => {
+        getData()
+    })
 
     const onSubmit = () => {
         try {
@@ -67,6 +75,7 @@ const Checkout = (props) => {
                             onChange={onFormChange}
                             onShippingChange={onShippingChange}
                             shippingData={shippingData}
+                            formDisabled={_isEmpty(products)}
                         />
                     </div>
                     <div className="row-col-1">
