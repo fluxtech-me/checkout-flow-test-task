@@ -65,7 +65,7 @@
         span {
             transition: transform 0.2s ease-out;
         }
-        &:hover span {
+        &:not(:disabled):hover span {
             transform: scale(1.06);
         }
         &:before {
