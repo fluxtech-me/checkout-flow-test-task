@@ -27,9 +27,9 @@ const Sidebar = (props) => {
                         className="close-btn burger"
                     >
                         <div className="burger__inner">
-                            <span className={`burger__top ${showSidebar ? 'active' : ''}`} />
-                            <span className={`burger__middle ${showSidebar ? 'active' : ''}`} />
-                            <span className={`burger__bottom ${showSidebar ? 'active' : ''}`} />
+                            <span className={cx("burger__top", {active: showSidebar})} />
+                            <span className={cx("burger__middle", {active: showSidebar})} />
+                            <span className={cx("burger__bottom", {active: showSidebar})} />
                         </div>
                     </Button>
                     <h2 className="heading-3 text-center">Your Cart</h2>
