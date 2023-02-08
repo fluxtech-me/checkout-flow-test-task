@@ -14,12 +14,13 @@ export const CartList = (props) => {
             {
                 data?.length ? (
                     _map(data, (item, index) => (
-                       <CartItem 
+                       <CartItem
+                           showDeleteAction={showDeleteAction}
                         key={index}
                         item={item} 
                         onCountChange={
                             (newCount) => onCountChange(newCount, item.id)
-                        } 
+                        }
                         />
                     ))
                 ) : (

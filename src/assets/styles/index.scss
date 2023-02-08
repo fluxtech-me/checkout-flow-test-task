@@ -50,7 +50,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .regular-text {
-  @include fontVariation(18px, 25px, 300);
+  @include fontVariation(16px, 25px, 300);
 }
 
 .medium-text {

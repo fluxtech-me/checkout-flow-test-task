@@ -100,10 +100,11 @@ const Checkout = (props) => {
                                         className="form-mb"
                                         name='email'
                                     />
-                                    <div className="form-mb d-md-flex">
+                                    <div className="form-mb d-md-flex mb-mob-sm">
                                         <Field
                                             component = {MobilePhoneField}
                                             name = "phone"
+                                            label="mobile phone"
                                             className="flex-item"
                                             onChange={(value) => setFieldValue('phone', value)}
                                             value={values.phone}
@@ -131,12 +132,12 @@ const Checkout = (props) => {
                                         />
                                     </div>
                                 </div>
-                                <div className="checkout-form__fieldset">
+                                <div className="checkout-form__fieldset phone-select-field">
                                     <h2 className="heading-2">Delivery Details</h2>
                                     <div className="form-mb d-md-flex">
-                                        <Field 
+                                        <Field
                                             component={SelectField}
-                                            className="w-100 flex-item"
+                                            className="w-100 flex-item custom-select"
                                             label="country"
                                             name="country"
                                             onChange={(value) => setFieldValue('country', value.value)}

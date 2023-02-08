@@ -10,7 +10,6 @@ const Textarea = (props) => {
         className = "",
         style = {},
         handleResetField = _identity,
-        placeholder,
         label,
         disabled,
         error,
@@ -39,7 +38,6 @@ const Textarea = (props) => {
                 className="form-control"
                 disabled={disabled}
                 readOnly={readOnly}
-                placeholder={!label && placeholder}
                 value={value}
                 {...inputProps}
             />
