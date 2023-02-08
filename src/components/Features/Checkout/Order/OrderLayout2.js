@@ -7,7 +7,9 @@ import { Order } from "../Order"
 import { OrderPricingInfo } from "../OrderPricingInfo/OrderPricingInfo"
 import _find from 'lodash/find'
 
-export const OrderLayout2 = () => {
+export const OrderLayout2 = (props) => {
+    const { onSubmit } = props
+
     return <Order render={ orderService => {
         const {
             products,
@@ -45,6 +47,7 @@ export const OrderLayout2 = () => {
                 <Button
                     className="w-100"
                     type="primary"
+                    onClick={onSubmit}
                     children={<span>Pay now</span>}
                 />
                 <CouponBox />
