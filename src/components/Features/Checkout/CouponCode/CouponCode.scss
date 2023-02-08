@@ -1,60 +1,61 @@
 @import "src/assets/styles/variables";
 
-.coupon-field{
-  margin: 20px 0 0;
-  text-align: center;
-  min-height: 95px;
-  &__label{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .btn{
-      margin-left: 4px;
-    }
-    .regular-text {
-      line-height: 20px;
-    }
-    .btn  span, .regular-text{
-      font-size: 16px;
-    }
-  }
-  &__form{
-    .field{
-      margin-bottom: 15px;
-    }
-    .apply-btn{
-      min-width: 116px;
-      width: 100%;
-      margin-top: 12px;
-    }
-  }
-  .coupon-cheap-list{
-    display: flex;
-    flex-wrap: wrap;
-    &__item{
-      flex: 0 0 1;
-      margin:0 12px 12px 0;
-    }
-  }
-  @include screen(sm) {
+.coupon-field {
+    margin: 20px 0 0;
+    text-align: center;
+    min-height: 95px;
     &__label {
-
-    }
-  }
-  @include screen(custom, min, 375) {
-    &__form{
-      .field{
         display: flex;
-        align-items: stretch;
-      }
-      .apply-btn{
-        margin-left: 15px;
-        width: auto;
-        margin-top: 0;
-      }
-      .btn  span, .regular-text{
-        font-size: 18px;
-      }
+        align-items: center;
+        justify-content: center;
+        .btn {
+            margin-left: 4px;
+        }
+        .regular-text {
+            line-height: 20px;
+        }
+        .btn span,
+        .regular-text {
+            font-size: 16px;
+        }
     }
-  }
+    &__form {
+        .field {
+            margin-bottom: 15px;
+        }
+        .apply-btn {
+            min-width: 116px;
+            width: 100%;
+            margin-top: 12px;
+        }
+    }
+    .coupon-cheap-list {
+        display: flex;
+        flex-wrap: wrap;
+        &__item {
+            flex: 0 0 1;
+            margin: 0 12px 12px 0;
+        }
+    }
+    @include screen(sm) {
+        &__label {
+        }
+    }
+    @include screen(custom, min, 375) {
+        &__form {
+            .field {
+                display: flex;
+                align-items: stretch;
+            }
+            .apply-btn {
+                margin-left: 15px;
+                width: auto;
+                margin-top: 0;
+            }
+            .btn span,
+            .regular-text {
+                font-size: 18px;
+            }
+        }
+    }
 }

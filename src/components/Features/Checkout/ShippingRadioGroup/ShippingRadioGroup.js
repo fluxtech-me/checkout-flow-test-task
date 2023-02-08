@@ -1,11 +1,10 @@
-import React, {useId} from 'react';
-import {RadioInput} from '../../../Material/RadioInput';
-import _map from 'lodash/map';
-import cx from 'classnames';
-import './ShippingRadioGroup.scss';
+import React, { useId } from "react"
+import { RadioInput } from "../../../Material/RadioInput"
+import _map from "lodash/map"
+import cx from "classnames"
+import "./ShippingRadioGroup.scss"
 
 export const ShippingRadioGroup = (props) => {
-
     const {
         className = "",
         style = {},
@@ -15,17 +14,14 @@ export const ShippingRadioGroup = (props) => {
         ...inputProps
     } = props
 
-    const id = useId('radio');
+    const id = useId("radio")
 
     return (
         <ul
-            className={cx(
-                'checkout-options',
-                {
-                    [className]: true,
-                    "disabled": disabled,
-                })
-            }
+            className={cx("checkout-options", {
+                [className]: true,
+                disabled: disabled,
+            })}
             style={style}
         >
             {_map(options, (option, index) => (
@@ -40,5 +36,5 @@ export const ShippingRadioGroup = (props) => {
                 </li>
             ))}
         </ul>
-    );
-};
+    )
+}

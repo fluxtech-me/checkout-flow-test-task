@@ -1,1 +1,1 @@
-export {CouponBox} from './CouponBox';
+export { CouponBox } from "./CouponBox"

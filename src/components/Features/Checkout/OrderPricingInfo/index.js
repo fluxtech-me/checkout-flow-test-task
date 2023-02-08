@@ -1,1 +1,1 @@
-export {OrderPricingInfo} from './OrderPricingInfo';
+export { OrderPricingInfo } from "./OrderPricingInfo"

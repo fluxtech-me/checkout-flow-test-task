@@ -1,38 +1,37 @@
 @import "../../../assets/styles/variables";
 
-.form-input--underlined{
-  $form-input: 'form-input';
-  textarea.form-control{
-    &:focus + {
-      .form-label{
-        transform: translate(2px, 64px);
-      }
-    }
-    .#{$form-input}--hasValue,
-    &:-webkit-autofill + {
-      .form-label{
-        transform: translate(2px, 64px);
-      }
-    }
-    .#{$form-input}--hasValue{
-      background-color: orange;
-    }
-    @include screen(sm) {
-      &:focus + {
-        .form-label{
-          transform: translate(2px, 90px);
+.form-input--underlined {
+    $form-input: "form-input";
+    textarea.form-control {
+        &:focus + {
+            .form-label {
+                transform: translate(2px, 64px);
+            }
         }
-      }
-      .#{$form-input}--hasValue,
-      &:-webkit-autofill + {
-        .form-label{
-          transform: translate(2px, 90px);
+        .#{$form-input}--hasValue,
+        &:-webkit-autofill + {
+            .form-label {
+                transform: translate(2px, 64px);
+            }
         }
-      }
-      .#{$form-input}--hasValue{
-        background-color: orange;
-      }
+        .#{$form-input}--hasValue {
+            background-color: orange;
+        }
+        @include screen(sm) {
+            &:focus + {
+                .form-label {
+                    transform: translate(2px, 90px);
+                }
+            }
+            .#{$form-input}--hasValue,
+            &:-webkit-autofill + {
+                .form-label {
+                    transform: translate(2px, 90px);
+                }
+            }
+            .#{$form-input}--hasValue {
+                background-color: orange;
+            }
+        }
     }
-  }
-
 }

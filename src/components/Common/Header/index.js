@@ -1,2 +1,2 @@
-export {Header} from './Header';
-export {CheckoutHeader} from './CheckoutHeader';
+export { Header } from "./Header"
+export { CheckoutHeader } from "./CheckoutHeader"

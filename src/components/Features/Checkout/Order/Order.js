@@ -1,16 +1,16 @@
-import React, {useState, useEffect} from 'react'
-import _findIndex from 'lodash/findIndex';
-import db from '../../../../services/db';
+import React, { useState, useEffect } from "react"
+import _findIndex from "lodash/findIndex"
+import db from "../../../../services/db"
 
 export const Order = (props) => {
-    const [products, setProducts] = useState([]);
-    const [appliedCoupons, setAppliedCoupons] = useState([]);
-    const [code, setCode] = useState("");
+    const [products, setProducts] = useState([])
+    const [appliedCoupons, setAppliedCoupons] = useState([])
+    const [code, setCode] = useState("")
     const [shippingData, setShippingData] = useState([])
 
     useEffect(() => {
-        getData();
-    });
+        getData()
+    })
 
     const getData = () => {
         const products = db.getProducts()
@@ -19,50 +19,51 @@ export const Order = (props) => {
         setProducts(products)
         setAppliedCoupons(appliedCoupons)
         setShippingData(shippingData)
-    };
+    }
 
     const onProductCountChange = (newCount, productId) => {
-        if(newCount !== 0) {
+        if (newCount !== 0) {
             db.updateProductCount(productId, newCount)
         } else {
             db.deleteProduct(productId)
         }
-        getData();
-    };
+        getData()
+    }
 
     const handleResetField = () => {
-        setCode('');
-    };
+        setCode("")
+    }
 
     const applyCoupon = () => {
-        const isAppliedCode = _findIndex(appliedCoupons, coupon => coupon.code === code)
-        if(isAppliedCode === -1) {
+        const isAppliedCode = _findIndex(
+            appliedCoupons,
+            (coupon) => coupon.code === code
+        )
+        if (isAppliedCode === -1) {
             db.addCoupon(code)
             handleResetField()
         }
-        getData();
-    };
+        getData()
+    }
 
     const deleteCoupon = (id) => {
         db.deleteCoupon(id)
         getData()
-    };
+    }
 
     const changeCode = (event) => {
         setCode(event.target.value)
-    };
+    }
 
-    return props.render(
-        { 
-            shippingData,
-            onProductCountChange, 
-            handleResetField, 
-            applyCoupon, 
-            deleteCoupon, 
-            changeCode, 
-            appliedCoupons, 
-            code,
-            products, 
-        }
-    )
+    return props.render({
+        shippingData,
+        onProductCountChange,
+        handleResetField,
+        applyCoupon,
+        deleteCoupon,
+        changeCode,
+        appliedCoupons,
+        code,
+        products,
+    })
 }

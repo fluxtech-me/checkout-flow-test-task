@@ -1,16 +1,15 @@
-import React, {useState} from "react";
-import Sidebar from '../components/Common/Sidebar';
-import {Header} from '../components/Common/Header';
+import React, { useState } from "react"
+import Sidebar from "../components/Common/Sidebar"
+import { Header } from "../components/Common/Header"
 
-import {AppLayout} from '../components/Common/AppLayout'
+import { AppLayout } from "../components/Common/AppLayout"
 
 const HomePage = () => {
-
-    const [showSidebar, setShowSidebar] = useState(false);
+    const [showSidebar, setShowSidebar] = useState(false)
 
     const setOpenSidebar = (isShown) => {
-        setShowSidebar(isShown);
-    };
+        setShowSidebar(isShown)
+    }
 
     return (
         <AppLayout>
@@ -19,10 +18,10 @@ const HomePage = () => {
                 <Sidebar
                     showSidebar={showSidebar}
                     setOpenSidebar={setOpenSidebar}
-                />   
+                />
             </main>
         </AppLayout>
-      )
+    )
 }
 
 export const Head = () => <title>Home</title>

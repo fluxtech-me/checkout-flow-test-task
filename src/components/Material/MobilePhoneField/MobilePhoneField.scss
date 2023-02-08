@@ -1,44 +1,44 @@
 @import "src/assets/styles/variables.scss";
 
-.phone-field{
+.phone-field {
     display: flex;
     align-items: stretch;
     position: relative;
-    &__input{
+    &__input {
         margin-right: 30px;
         @extend #form-control;
         @extend #underlinedInput;
         border-bottom: none;
     }
-    .phone-label{
+    .phone-label {
         @extend #form-label;
         transform: translate(2px, 54px);
     }
-    .PhoneInput{
+    .PhoneInput {
         align-items: stretch;
         height: 42px;
         border-bottom: 1px solid var(--black);
     }
-    .PhoneInputInput{
+    .PhoneInputInput {
         height: 42px;
         border-bottom: 0;
         color: var(--black);
         @include fontVariation(16px, 28px, 400);
-        &:focus{
+        &:focus {
             outline: none;
         }
     }
-    .PhoneInputCountry{
+    .PhoneInputCountry {
         background: rgba(255, 255, 255, 0.5);
-        border: 0.5px solid #9C9C9C;
+        border: 0.5px solid #9c9c9c;
         border-bottom-color: var(--black);
         border-radius: 2px;
         min-width: 70px;
         height: 42px;
-        .PhoneInputCountryIcon{
+        .PhoneInputCountryIcon {
             margin: 0 10px;
         }
-        .PhoneInputCountrySelectArrow{
+        .PhoneInputCountrySelectArrow {
             position: absolute;
             right: 2px;
             border: 0;
@@ -47,22 +47,22 @@
             transform: none;
             font-size: 12px;
             opacity: 1;
-            &:before{
-                content: '\e904';
-                font-family: 'Icomoon';
+            &:before {
+                content: "\e904";
+                font-family: "Icomoon";
             }
         }
     }
     @include screen(sm) {
-        .PhoneInputCountry{
+        .PhoneInputCountry {
             min-width: 90px;
-            .PhoneInputCountrySelectArrow{
+            .PhoneInputCountrySelectArrow {
                 right: 8px;
                 width: 20px;
                 height: 12px;
             }
         }
-        .PhoneInputInput{
+        .PhoneInputInput {
             max-width: 242px;
             font-size: 25px;
             line-height: 38px;

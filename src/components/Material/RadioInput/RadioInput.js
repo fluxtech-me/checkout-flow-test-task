@@ -1,5 +1,5 @@
-import React from 'react';
-import './RadioInput.scss';
+import React from "react"
+import "./RadioInput.scss"
 
 export const RadioInput = (props) => {
     const {
@@ -10,12 +10,9 @@ export const RadioInput = (props) => {
         id,
         disabled = false,
         ...inputProps
-    } = props;
+    } = props
 
-    const {
-        value,
-        label,
-    } = option;
+    const { value, label } = option
 
     return (
         <div className="radio-item">
@@ -27,7 +24,9 @@ export const RadioInput = (props) => {
                 value={value}
                 checked={value === defaultValue}
             />
-            <label htmlFor={id}><span>{label}</span></label>
+            <label htmlFor={id}>
+                <span>{label}</span>
+            </label>
         </div>
-    );
-};
+    )
+}

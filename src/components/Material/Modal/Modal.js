@@ -1,31 +1,31 @@
 import React from "react"
-import ReactModal from 'react-modal';
-import './Modal.scss'
-import {useEffect} from "react";
+import ReactModal from "react-modal"
+import "./Modal.scss"
+import { useEffect } from "react"
 
 const customStyles = {
     overlay: {
         zIndex: 2000,
-        backgroundColor: 'rgba(0, 0, 0, 0.7)'
+        backgroundColor: "rgba(0, 0, 0, 0.7)",
     },
     content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-        border: 'none',
-        backgroundColor: 'white',
-        borderRadius: '6px',
-        padding: '0',
-        minWidth: '400px',
-        minHeight: '200px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        top: "50%",
+        left: "50%",
+        right: "auto",
+        bottom: "auto",
+        marginRight: "-50%",
+        transform: "translate(-50%, -50%)",
+        border: "none",
+        backgroundColor: "white",
+        borderRadius: "6px",
+        padding: "0",
+        minWidth: "400px",
+        minHeight: "200px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
     },
-};
+}
 
 export const Modal = (props) => {
     const {
@@ -34,28 +34,30 @@ export const Modal = (props) => {
         children,
         closeDisabled = false,
         ...modalProps
-    } = props;
+    } = props
 
-    useEffect(() =>  {
+    useEffect(() => {
         if (open) {
-            document.body.classList.add('overflow-hidden');
+            document.body.classList.add("overflow-hidden")
         }
 
         return () => {
-            document.body.classList.remove('overflow-hidden');
+            document.body.classList.remove("overflow-hidden")
         }
-    }, [open]);
+    }, [open])
 
-    return <ReactModal
-        isOpen={open}
-        onRequestClose={(...args) => {
-            if (closeDisabled) return;
-            onClose(args)
-        }}
-        style={customStyles}
-        ariaHideApp={false}
-        {...modalProps}
-    >
-        {children}
-    </ReactModal>
+    return (
+        <ReactModal
+            isOpen={open}
+            onRequestClose={(...args) => {
+                if (closeDisabled) return
+                onClose(args)
+            }}
+            style={customStyles}
+            ariaHideApp={false}
+            {...modalProps}
+        >
+            {children}
+        </ReactModal>
+    )
 }

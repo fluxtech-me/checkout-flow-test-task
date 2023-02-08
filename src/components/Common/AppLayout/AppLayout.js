@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react"
 
 // global styles
-import '../../../assets/styles/index.scss';
+import "../../../assets/styles/index.scss"
 
 const AppLayout = (props) => {
-    const {children} = props
-    return children;
+    const { children } = props
+    return children
 }
 
-export {AppLayout}
+export { AppLayout }

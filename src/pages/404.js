@@ -1,14 +1,14 @@
 import React from "react"
 
-import {NotFound} from '../components/Common/NotFound'
-import {AppLayout} from '../components/Common/AppLayout'
+import { NotFound } from "../components/Common/NotFound"
+import { AppLayout } from "../components/Common/AppLayout"
 
 const NotFoundPage = () => {
-  return (
-    <AppLayout>
-        <NotFound />
-    </AppLayout>
-  )
+    return (
+        <AppLayout>
+            <NotFound />
+        </AppLayout>
+    )
 }
 
 export default NotFoundPage

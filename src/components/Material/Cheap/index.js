@@ -1,1 +1,1 @@
-export { Cheap } from './Cheap';
+export { Cheap } from "./Cheap"

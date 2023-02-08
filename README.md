@@ -1,7 +1,8 @@
 # Checkout Flow Test Task
 
 ## Requirements
-*node >= 18*
+
+_node >= 18_
 
 ---
 
@@ -21,7 +22,6 @@ You will also see any lint errors in the console.
 
 Builds the app for production to the `public` folder.
 
-
 ### `npm run serve`
 
 Serves the production build of your site for testing prior to deployment.
@@ -29,4 +29,3 @@ Serves the production build of your site for testing prior to deployment.
 ### `npm run clean`
 
 Delete the .cache and public directories. Should be run from the root of your project.
-

@@ -1,147 +1,151 @@
 @import "../../../assets/styles/variables";
 
-.checkout-page{
-  min-height: 100vh;
-  background: radial-gradient(50% 50% at 50% 50%, rgba(241, 238, 233, 0.16) 0%, #F1EEE9 100%);
-  padding-bottom: 40px;
-  .heading-2{
-    margin-bottom: 18px;
-  }
-  .checkout-form{
-    max-width: 713px;
-    &__fieldset{
-      margin-bottom: 24px;
-      position: relative;
-      .form-mb{
-        margin-bottom: 50px;
-        &.mb-mob-sm{
-          margin-bottom: 30px;
+.checkout-page {
+    min-height: 100vh;
+    background: radial-gradient(
+        50% 50% at 50% 50%,
+        rgba(241, 238, 233, 0.16) 0%,
+        #f1eee9 100%
+    );
+    padding-bottom: 40px;
+    .heading-2 {
+        margin-bottom: 18px;
+    }
+    .checkout-form {
+        max-width: 713px;
+        &__fieldset {
+            margin-bottom: 24px;
+            position: relative;
+            .form-mb {
+                margin-bottom: 50px;
+                &.mb-mob-sm {
+                    margin-bottom: 30px;
+                }
+                .regular-text {
+                    margin-top: 30px;
+                    color: #585858;
+                }
+            }
+            .action-wrapper {
+                margin: 50px 0 83px;
+                position: relative;
+                .update-btn {
+                    bottom: -25px;
+                }
+            }
+            .update-btn {
+                position: absolute;
+                bottom: -28px;
+                right: 4px;
+            }
+            .checkout-options {
+                margin-bottom: 54px;
+            }
         }
-        .regular-text{
-          margin-top: 30px;
-          color: #585858;
-        }
-      }
-      .action-wrapper{
-        margin: 50px 0 83px;
-        position: relative;
-        .update-btn{
-          bottom: -25px;
-        }
-      }
-      .update-btn{
-        position: absolute;
-        bottom: -28px;
-        right: 4px;
-      }
-      .checkout-options {
-        margin-bottom: 54px;
-      }
     }
-  }
-  .cart-list{
-    margin: 0 0 24px;
-  }
-  .checkout-list{
-    width: auto;
-    .bordered{
-      background: #FFFFFF;
-      border: 1px solid #9E9E9E;
-      border-radius: 9px;
-      padding: 14px 14px 20px;
-      margin-bottom: 23px;
+    .cart-list {
+        margin: 0 0 24px;
     }
-    .coupon-box{
-      margin: 23px 0;
-    }
-    .order-info-list{
-      padding-bottom: 0;
-      margin-top: 30px;
-    }
-  }
-  .payment-details{
-    background: #F8F8F8;
-    border: 1px solid #000000;
-    border-radius: 3px;
-    &__item{
-      min-height: 34px;
-      display: flex;
-      align-items: center;
-      img{
-        height: 30px;
+    .checkout-list {
         width: auto;
-      }
-      &:not(:first-child){
-        border-top: 1px solid var(--black);
-      }
+        .bordered {
+            background: #ffffff;
+            border: 1px solid #9e9e9e;
+            border-radius: 9px;
+            padding: 14px 14px 20px;
+            margin-bottom: 23px;
+        }
+        .coupon-box {
+            margin: 23px 0;
+        }
+        .order-info-list {
+            padding-bottom: 0;
+            margin-top: 30px;
+        }
     }
-  }
-  @include screen(sm) {
-    .checkout-form {
-      &__fieldset {
-        .form-mb {
-          margin-bottom: 53px;
-          &.mb-mob-sm{
-            margin-bottom: 53px;
-          }
-          .regular-text{
-            margin-top: 0;
-          }
-          &:not(:only-of-type):not(.action-wrapper):last-of-type{
-            margin-bottom: 0;
-          }
+    .payment-details {
+        background: #f8f8f8;
+        border: 1px solid #000000;
+        border-radius: 3px;
+        &__item {
+            min-height: 34px;
+            display: flex;
+            align-items: center;
+            img {
+                height: 30px;
+                width: auto;
+            }
+            &:not(:first-child) {
+                border-top: 1px solid var(--black);
+            }
         }
-        .action-wrapper{
-          margin: 63px 0 83px;
-        }
-      }
-      .d-md-flex{
-        display: flex;
-        align-items: stretch;
-        .flex-item{
-          max-width: 338px;
-          flex: 1;
-          &:first-child{
-            margin-right: 40px;
-          }
-        }
-        &.xs-row{
-          flex-direction: column;
-          .regular-text{
-            margin-top: 40px;
-          }
-          .flex-item, .phone-field__input{
-            max-width: 100%;
-            margin-right: 0;
-          }
-        }
-      }
     }
-    .payment-details{
-      &__item{
-        min-height: 50px;
-        img{
-          height: initial;
-          width: initial;
+    @include screen(sm) {
+        .checkout-form {
+            &__fieldset {
+                .form-mb {
+                    margin-bottom: 53px;
+                    &.mb-mob-sm {
+                        margin-bottom: 53px;
+                    }
+                    .regular-text {
+                        margin-top: 0;
+                    }
+                    &:not(:only-of-type):not(.action-wrapper):last-of-type {
+                        margin-bottom: 0;
+                    }
+                }
+                .action-wrapper {
+                    margin: 63px 0 83px;
+                }
+            }
+            .d-md-flex {
+                display: flex;
+                align-items: stretch;
+                .flex-item {
+                    max-width: 338px;
+                    flex: 1;
+                    &:first-child {
+                        margin-right: 40px;
+                    }
+                }
+                &.xs-row {
+                    flex-direction: column;
+                    .regular-text {
+                        margin-top: 40px;
+                    }
+                    .flex-item,
+                    .phone-field__input {
+                        max-width: 100%;
+                        margin-right: 0;
+                    }
+                }
+            }
         }
-      }
-    }
-  }
-  @include screen(md) {
-    .checkout-form {
-      .d-md-flex {
-        &.xs-row {
-          flex-direction: row;
-          .regular-text {
-            margin-top: 0;
-          }
-          .flex-item {
-            max-width: 100%;
-            margin-right: 40px;
-          }
+        .payment-details {
+            &__item {
+                min-height: 50px;
+                img {
+                    height: initial;
+                    width: initial;
+                }
+            }
         }
-      }
     }
-  }
+    @include screen(md) {
+        .checkout-form {
+            .d-md-flex {
+                &.xs-row {
+                    flex-direction: row;
+                    .regular-text {
+                        margin-top: 0;
+                    }
+                    .flex-item {
+                        max-width: 100%;
+                        margin-right: 40px;
+                    }
+                }
+            }
+        }
+    }
 }
-
