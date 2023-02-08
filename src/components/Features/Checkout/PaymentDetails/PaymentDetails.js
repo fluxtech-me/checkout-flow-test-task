@@ -1,6 +1,6 @@
 import React from 'react';
-import paypal from "../../../assets/images/paypal.svg";
-import card from "../../../assets/images/card.svg";
+import paypal from "../../../../assets/images/paypal.svg";
+import card from "../../../../assets/images/card.svg";
 import _map from 'lodash/map'
 
 const PaymentDetails = () => {
