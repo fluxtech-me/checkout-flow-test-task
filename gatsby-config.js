@@ -20,6 +20,6 @@ module.exports = {
                 display: "standalone",
                 icon: "src/assets/images/favicon.png",
             },
-        }
+        },
     ],
 }
