@@ -38,7 +38,6 @@ class DB {
     ]
     checkoutData = {}
 
-    
     getProducts() {
         return this.products
     }

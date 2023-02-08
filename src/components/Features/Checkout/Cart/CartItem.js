@@ -8,6 +8,7 @@ export const CartItem = (props) => {
         onCountChange,
         showDeleteAction
     } = props;
+
     return (
         <li className="cart-list__item">
             <div className="cart-image">
