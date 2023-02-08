@@ -20,7 +20,7 @@ const Checkout = (props) => {
 
     const [shippingData, setShippingData] = useState([]);
     const [countriesList, setCountryList] = useState([]);
-    const [deliveryAddressContent, setDeliveryAddressContent] = useState("Unit 56, 20 Campbell Parade, Bondi Beach, Whatever unit block, NSW, 2026 goes over 2 lines if it’s long address");
+    // const [deliveryAddressContent, setDeliveryAddressContent] = useState("Unit 56, 20 Campbell Parade, Bondi Beach, Whatever unit block, NSW, 2026 goes over 2 lines if it’s long address");
     const [showModal, setShowModal] = useState(false);
 
     const getData = () => {
@@ -41,7 +41,6 @@ const Checkout = (props) => {
             const products = db.getProducts()
             const shippingData = db.getShippingData()
             const checkoutInfo = {checkoutData: newCheckoutData, products, shippingData}
-            console.log('checkoutInfo', checkoutInfo)
             onCheckoutSuccess(checkoutInfo)
         } catch (error) {
             onCheckoutFail(error)
@@ -56,11 +55,14 @@ const Checkout = (props) => {
         );
     };
 
-    const handleFieldReset = () => {
-        setDeliveryAddressContent("");
-    };
-
-    const initialValues = {email: '', phone: '', firstName: '', lastName: '', country: ''}
+    const initialValues = { 
+        email: '',
+        phone: '', 
+        firstName: '', 
+        lastName: '', 
+        country: '',
+        address: ''
+    }
 
     useEffect(() => {
         getData()
@@ -144,16 +146,18 @@ const Checkout = (props) => {
                                         />
                                     </div>
                                     <div className="form-mb d-md-flex action-wrapper">
-                                        <Textarea
-                                            readOnly={true}
+                                        <Field 
+                                            component={Textarea}
+                                            onChange={(value) => setFieldValue('address', value.value)}
                                             variant="underlined"
                                             label="delivery address"
-                                            value={deliveryAddressContent}
+                                            value={values.address}
+                                            name="address"
                                         />
                                         <Button
                                             type="link"
                                             className="update-btn"
-                                            onClick={handleFieldReset}
+                                            onClick={() => setFieldValue('address', "")}
                                             children={<span>change</span>}
                                         />
                                     </div>
