@@ -22,7 +22,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    @include fontVariation(30px, 45px, 400);
+    @include fontVariation(24px, 32px, 400);
     @include btn-polygon(16px);
 
     @if($type == primary) {
@@ -41,6 +41,18 @@
         @include btn-polygon(15px);
         background-color: var(--white);
       }
+    }
+    @include screen(md) {
+      &:not(.btn--sm){
+        font-size: 30px;
+        line-height: 45px;
+      }
+    }
+    span{
+      transition: transform .2s ease-out;
+    }
+    &:hover span{
+      transform: scale(1.06);
     }
     &:before{
       content: '';
@@ -67,7 +79,7 @@
     min-width: 116px;
     min-height: 40px;
     cursor: pointer;
-    padding: 4px;
+    padding: 7px 4px 1px 4px;
     transition: background-color .3s ease-out;
     &:not(:disabled):hover{
       background-color: rgba(var(--btn-bg-color), .5);
@@ -126,7 +138,6 @@
       }
     }
   }
-
 }
 
 .spin {

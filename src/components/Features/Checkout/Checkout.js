@@ -6,6 +6,9 @@ import {PaymentDetails} from '../../Features/Checkout/PaymentDetails';
 import {MobilePhoneField} from '../../Features/Checkout/MobilePhoneField';
 import {Input} from '../../Material/Input';
 import {Select} from '../../Material/Select';
+import {Textarea} from '../../Material/Textarea';
+import {Button} from '../../Material/Button';
+import {Modal} from '../../Material/Modal';
 
 const Checkout = () => {
     const orderCheckoutData = [
@@ -16,10 +19,28 @@ const Checkout = () => {
             label: 'test label 2', value: 'test 2',
         },
     ];
-
+    const [showModal, setShowModal] = useState(false);
     const [checkedValue, setCheckedValue] = useState('');
+
     const onRadioChange = (e) => {
         setCheckedValue(e.target.value);
+    };
+
+    const renderModalContent = () => {
+      return (
+          <div>
+              <h2>Modal content</h2>
+          </div>
+      );
+    };
+
+    const handleOpenModal = (e) => {
+        e.preventDefault();
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
     };
 
     return (
@@ -63,6 +84,20 @@ const Checkout = () => {
                                         label="country"
                                     />
                                 </div>
+                                <div className="form-mb d-md-flex action-wrapper">
+                                    <Textarea
+                                        readOnly={true}
+                                        variant="underlined"
+                                        label="delivery address"
+                                        value="Unit 56, 20 Campbell Parade, Bondi Beach, Whatever unit block, NSW, 2026 goes over 2 lines if it’s long address"
+                                    />
+                                    <Button
+                                        type="link"
+                                        className="update-btn"
+                                        onClick={handleOpenModal}
+                                        children={<span>change</span>}
+                                    />
+                                </div>
                             </div>
                             <div className="checkout-form__fieldset">
                                 <h2 className="heading-2">Your Details</h2>
@@ -84,6 +119,11 @@ const Checkout = () => {
                     </div>
                 </div>
             </div>
+            <Modal
+                open={showModal}
+                onClose={handleCloseModal}
+                children={renderModalContent()}
+            />
         </section>
     );
 };

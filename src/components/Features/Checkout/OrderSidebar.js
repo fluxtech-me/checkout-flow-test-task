@@ -17,7 +17,7 @@ const OrderSidebar = () => {
 
                 <Button
                     type="primary"
-                    children="Pay now"
+                    children={<span>Pay now</span>}
                 />
                 <CouponBox />
             </div>

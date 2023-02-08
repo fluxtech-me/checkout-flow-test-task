@@ -3,18 +3,14 @@
 .coupon-field{
   margin: 20px 0;
   text-align: center;
-  &__label{
-
-  }
   &__form{
     .field{
-      display: flex;
-      align-items: stretch;
       margin-bottom: 15px;
     }
     .apply-btn{
       min-width: 116px;
-      margin-left: 15px;
+      width: 100%;
+      margin-top: 12px;
     }
   }
   .coupon-cheap-list{
@@ -23,6 +19,19 @@
     &__item{
       flex: 0 0 1;
       margin:0 12px 12px 0;
+    }
+  }
+  @include screen(custom, min, 375) {
+    &__form{
+      .field{
+        display: flex;
+        align-items: stretch;
+      }
+      .apply-btn{
+        margin-left: 15px;
+        width: auto;
+        margin-top: 0;
+      }
     }
   }
 }
