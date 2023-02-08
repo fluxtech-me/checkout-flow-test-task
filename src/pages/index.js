@@ -1,13 +1,26 @@
-import React from "react"
+import React, {useState} from "react";
+import Sidebar from '../components/Common/Sidebar';
+import {Header} from '../components/Common/Header';
 
-// component
-import {Home} from '../components/Features/Home'
 import {AppLayout} from '../components/Common/AppLayout'
 
 const HomePage = () => {
+
+    const [showSidebar, setShowSidebar] = useState(false);
+
+    const setOpenSidebar = (isShown) => {
+        setShowSidebar(isShown);
+    };
+
     return (
         <AppLayout>
-            <Home />
+            <main>
+                <Header setOpenSidebar={setOpenSidebar} />
+                <Sidebar
+                    showSidebar={showSidebar}
+                    setOpenSidebar={setOpenSidebar}
+                />   
+            </main>
         </AppLayout>
       )
 }

@@ -3,7 +3,7 @@
  */
 module.exports = {
     siteMetadata: {
-      title: `gatsby-test`,
+      title: `checkout-flow-test-task`,
       siteUrl: `https://www.yourdomain.tld`
     },
     plugins: ["gatsby-plugin-sass"]
