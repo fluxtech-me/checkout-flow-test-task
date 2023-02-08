@@ -140,7 +140,7 @@
             opacity: 0.6;
         }
         span {
-            @include fontVariation(16px, 10px, 400);
+            @include fontVariation(16px, 10px, 300);
             position: relative;
             &:after {
                 content: "";

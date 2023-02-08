@@ -56,7 +56,7 @@ h6 {
 }
 
 .regular-text {
-    @include fontVariation(16px, 25px, 300);
+    @include fontVariation(16px, 25px, 200);
 }
 
 .medium-text {
