@@ -40,6 +40,7 @@
 
     @include screen(md) {
         padding: 47px 54px;
+        min-height: 166px;
         .logo {
             width: initial;
             height: inherit;
